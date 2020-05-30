@@ -1,0 +1,60 @@
+"""REGEX SEARCH 
+This script searches a directory for a paragraph containing a matching regex pattern. 
+It displays all matching paragraphs with the name of the file found.
+pattern can be multiple words separated by spaces and enclosed in quotes.
+version 1.0
+"""
+#####################################################
+import re
+from os import walk
+import os
+import argparse
+import textwrap
+#============================================================
+class Fetch():
+	#Initialize and prepare commandline arguments
+	def __init__(self):
+		default_dir = "D:/Info"
+		self.FILES = []
+		self.parser = argparse.ArgumentParser(
+		description = __doc__,
+		formatter_class=argparse.RawDescriptionHelpFormatter,
+		usage="fetch  [regex pattern format] <-d [directory] [pattern]>")
+		self.parser.add_argument('pattern', action='store', help='Regex Pattern to search for')
+		self.parser.add_argument('-d', '--dir', action='store', default= default_dir, help= "Directory to search")
+		self.args = self.parser.parse_args()
+		self.pattern = ".*".join(self.args.pattern.split(" "))
+		self.dir  = self.args.dir
+
+
+	#get files from directory
+	def get_files(self):
+		for dirName, subdirList, fileList in os.walk("d:/info"):
+			for fname in fileList:
+				self.FILES.append(dirName+"\\"+fname)
+		return self.FILES
+
+	#split text files to paragraphs and regex search each para
+	def main(self):
+		counter = 0
+		for f in self.get_files():
+			if f.endswith("txt"):
+				TEXT = open(f, 'r', encoding="ISO-8859-1").read()
+			paras = TEXT.split("\n\n")
+			for para in paras:
+				if re.search(self.pattern, para, re.IGNORECASE|re.MULTILINE|re.DOTALL):
+					counter += 1
+					print(("="*78))
+					print(("||"+str(counter)+"|| - Paragraphs matching:    "+self.pattern+"\n"+"="*78))
+					if re.search('[*]', para):
+						row = para.split(",")
+						print(('\n'.join("\t".join(row[i:i+len(row)]) for i in range(0,len(row),len(row)))))
+					else:
+						paragraph = textwrap.wrap(para, 78,break_long_words=False, replace_whitespace=False)
+						print(("\n".join(paragraph)))
+					print("\n")
+					print(("="*78+"\n found in...."+f))
+					print(("="*78))
+#############################################################################
+if __name__ == "__main__":
+	Fetch().main()
