@@ -1,0 +1,89 @@
+"""FIND FILE BY NAME:
+find a filename matching a pattern in a directory tree
+user enter pattern and directory if not using default directory.
+----------------------------------------------------------------------------
+The files matching the pattern are displayed in numbered list.
+User selects a number to run the file by its associated executable.
+"""
+#======================================================
+import os
+import re
+from sys import argv
+from os.path import basename
+import glob
+import argparse
+#=====================================================
+class Findit():
+
+	def __init__(self, dir =None, pat=None):
+		"Argparse for commandline options"
+		self.dir = dir
+		self.pat = pat
+		default_dir = "D:\folder\subfolder"
+		self.file_list = []
+		self.matching_files = []
+		self.parser = argparse.ArgumentParser(
+			formatter_class=argparse.RawDescriptionHelpFormatter,
+			description = __doc__,
+			usage = "find [pattern] <-d [directory]>")
+		self.parser.add_argument("-d",  "--dir", default=default_dir, help="folder to search")
+		self.parser.add_argument("pat",  help="Pattern to search for")
+		self.args = self.parser.parse_args()
+		self.dir = self.args.dir
+		self.pat = self.args.pat
+
+	def get_file_dirs(self):
+		"get file list from source directory and add to file_list"""
+		for (roots, dirs, files) in os.walk(self.dir):
+			for file in files:
+				self.file_list.append(roots+"\\"+file)
+
+	def find_matches(self):
+		"""match the pattern to names of files """
+		self.get_file_dirs()
+		reg = re.compile(".*"+self.pat+".*$", re.IGNORECASE)
+		for line in self.file_list:
+			self.matching_files += reg.findall(line)
+
+	#return file names only in a list
+	def list_matches(self):
+		for index,i in enumerate(self.matching_files, 1):
+			name = os.path.splitext(basename(i))[0]
+			print(index, "==", name)
+
+	#user select file to open by default exe
+	def select_file2open(self):
+		selected = input("Select a file number to open: ")
+		os.startfile(self.matching_files[int(selected)-1])
+		print("file ...[", self.matching_files[int(selected)-1],"]....opened")
+		print("="*78)
+
+	#continue selection or exit
+	def usr_continue(self):
+		while True:
+			answer = input("Would you like to select another file? (y/Y or n/N): ")
+			if answer in ['n', 'N']:
+				print('Goodbye')
+				exit()
+			elif answer in ['y', 'Y']:
+				self.select_file2open()
+			else:
+				print("No file was selected .......")
+				exit
+
+	#main function
+	def main(self):
+		self.find_matches()
+		if self.matching_files != []:
+			self.list_matches()
+			try:
+				self.select_file2open()
+			except:
+				print("********** Please Select a file from list ***************")
+			self.usr_continue()
+		else:
+			print( "can not find this file")
+			exit
+###################################################
+if __name__ == "__main__":
+	Findit().main()
