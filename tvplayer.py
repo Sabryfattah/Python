@@ -82,20 +82,9 @@ def play_video(station):
 #############################################################################
 "draw buttons in the window with names of channels and play channel by clicking"
 def btn(col,row,text, index):
-	Radiobutton(frame,
-														text = text,
-														padx = 1,
-														pady=  1,
-														width = 25,
-														bg="aqua",
-														relief = "raised",
-														font =("Tahoma", 10, "bold"),
-														justify= "left",
-														anchor="w",
-														indicatoron=0,
-														variable = v,
-														value=index,
-														command= lambda: play_video(stations[int(v.get())])).grid(row=row, column=col, sticky="n,e,s",padx=1, pady=1)
+	Radiobutton(frame, text = text, padx = 1, pady=  1, width = 25, bg="aqua", relief = "raised", font =("Tahoma", 10, "bold"), justify= "left", anchor="w",
+	indicatoron=0, variable = v, value=index,
+	command= lambda: play_video(stations[int(v.get())])).grid(row=row, column=col, sticky="n,e,s",padx=1, pady=1)
 #================================================
 """split list into number of sublists then bton each sublist in sequence """
 data = titles
