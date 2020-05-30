@@ -1,0 +1,63 @@
+import vlc
+from tkinter import *
+
+class MusicPlayer:
+
+	def __init__(self,root):
+		self.root = root
+		self.root.title("Music Player")
+		self.root.geometry("1000x200+200+200")
+		self.track = StringVar()
+		self.status = StringVar()
+		self.list_stations = {}
+
+		trackframe = LabelFrame(self.root,text="Song Track",font=("times new roman",15,"bold"),bg="grey",fg="white",bd=5,relief=GROOVE)
+		trackframe.place(x=0,y=0,width=600,height=100)
+		songtrack = Label(trackframe,textvariable=self.track,width=20,font=("times new roman",24,"bold"),bg="grey",fg="gold").grid(row=0,column=0,padx=10,pady=5)
+		trackstatus = Label(trackframe,textvariable=self.status,font=("times new roman",24,"bold"),bg="grey",fg="gold").grid(row=0,column=1,padx=10,pady=5)
+
+		buttonframe = LabelFrame(self.root,text="Control Panel",font=("times new roman",15,"bold"),bg="grey",fg="white",bd=5,relief=GROOVE)
+		buttonframe.place(x=0,y=100,width=600,height=100)
+		playbtn = Button(buttonframe,text="PLAY",command=self.playsong,width=6,height=1,font=("times new roman",16,"bold"),fg="navyblue",bg="gold").grid(row=0,column=0,padx=10,pady=5)
+		playbtn = Button(buttonframe,text="PAUSE",command=self.pausesong,width=8,height=1,font=("times new roman",16,"bold"),fg="navyblue",bg="gold").grid(row=0,column=1,padx=10,pady=5)
+		playbtn = Button(buttonframe,text="UNPAUSE",command=self.unpausesong,width=10,height=1,font=("times new roman",16,"bold"),fg="navyblue",bg="gold").grid(row=0,column=2,padx=10,pady=5)
+		playbtn = Button(buttonframe,text="STOP",command=self.stopsong,width=6,height=1,font=("times new roman",16,"bold"),fg="navyblue",bg="gold").grid(row=0,column=3,padx=10,pady=5)
+
+		songsframe = LabelFrame(self.root,text="Song Playlist",font=("times new roman",15,"bold"),bg="grey",fg="white",bd=5,relief=GROOVE)
+		songsframe.place(x=600,y=0,width=400,height=200)
+		scrol_y = Scrollbar(songsframe,orient=VERTICAL)
+		self.playlist = Listbox(songsframe,yscrollcommand=scrol_y.set,selectbackground="gold",selectmode=SINGLE,font=("times new roman",12,"bold"),bg="silver",fg="navyblue",bd=5,relief=GROOVE)
+		scrol_y.pack(side=RIGHT,fill=Y)
+		scrol_y.config(command=self.playlist.yview)
+		self.playlist.pack(fill=BOTH)
+		self.get_stations()
+
+	def get_stations(self):
+		with open("stations.csv", mode='r') as f:
+			for line in f.readlines():
+				station = line.strip().split(',')
+				self.list_stations[station[0]] =station[1]
+		for k, v in sorted(self.list_stations.items(), reverse=True):
+			self.playlist.insert(END, k)
+
+	def playsong(self):
+		self.track.set(self.playlist.get(ACTIVE))
+		self.status.set("-Playing")
+		self.player = vlc.MediaPlayer(self.list_stations[self.playlist.get(ACTIVE)])
+		self.player.play()
+
+	def stopsong(self):
+		self.status.set("-Stopped")
+		self.player.stop()
+
+	def pausesong(self):
+		self.status.set("-Paused")
+		self.player.pause()
+
+	def unpausesong(self):
+		self.status.set("-Playing")
+		self.player.unpause()
+
+root = Tk()
+MusicPlayer(root)
+root.mainloop()
