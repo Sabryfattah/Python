@@ -9,3 +9,4 @@ Python Scripts
 * vplay : video player using tkinter and vlc.
 * vlcp : vlc internet radio streaming tkinter gui interface.
 * ffind : search a directory tree recursively to find a filename matching a pattern and open it.
+* fetch : search for paragraph containing regex pattern and display it with filename.
