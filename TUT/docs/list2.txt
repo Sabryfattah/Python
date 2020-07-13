@@ -1,0 +1,190 @@
+extract  element of list matching a condition ==>
+L = "ant bear cat".split(" ")
+for x in L:
+  if len(x) > 3:
+    print x #=> bear
+#use list comprehension instead of for loop
+[x for x in L if len(x) > 3]  #=> ['bear']
+[x for x in L if x[0] == "a"] #=> ['ant']
+
+
+
+flatten nested list of lists ==>
+list = [['ant','cat','bear'],['insect','animal','mammal']]
+fl = [e for nL in list for e in nL]
+print(fl)
+
+
+
+search nested list for an element ==>
+list = [['ant','cat','bear'],['insect','animal','mammal']]
+# flatten list of lists
+fl = [e for nL in list for e in nL]  #=> ['ant', 'cat', 'bear', 'insect', 'animal', 'mammal']
+# then get element from flattened nested list
+'insect' in fl;print("insect"," in ", fl) # True # insect  in  ['ant', 'cat', 'bear', 'insect', 'animal', 'mammal']
+
+
+
+search nested sublist for element  and get sublist ==>
+list = [['ant','cat','bear'],['insect','animal','mammal']]
+'insect' in [element for sublist in list for element in sublist] #True
+for sublist  in list:
+  if 'insect' in sublist:
+    print(sublist)
+
+[sublist for sublist in list if 'insect' in sublist]
+
+
+
+check  nested list for element using any ==>
+L = [[ "colors", "red", "blue", "green" ],[ "letters", "a", "b", "c" ],["foo", "bar"]]
+any("color" in sublist for sublist in L) #colors is there not color #=> False
+
+
+
+clear and empty array from all elements in list ==>
+a = [ "a", "b", "c", "d", "e" ]
+a = []
+
+
+
+invoke a function on  each element in a list ( map , lambda ) ==>
+def func(x):
+  return x*x
+
+#use map(lambda parameter: statement|function  or more , list or more)
+L  = [1,2,3,4,5]
+m = map(lambda x: x*x, L)  #=> [1, 4, 9, 16, 25] # m is an iterator
+print([x for x in m])
+
+
+
+filter elements in a list matching lambda function ==>
+# use filter(lambda parameter: statement, list)
+names = ['Anne', 'Amy', 'Bob', 'David', 'Carrie', 'Barbara', 'Zach']
+b_names = filter(lambda s: s.startswith('B'), names)
+print([x for x in b_names])    #['Bob', 'Barbara']
+
+
+
+join lists without duplicates ==>
+set([ "a", "b","a", "b", "c" ] + [ "c", "d", "c", "d", "a" ])    #=> {'b', 'c', 'd', 'a'}
+
+
+
+merge multiple lists into  tuples using zip ==>
+a = [ 4, 5, 6 ]
+b = [ 7, 8, 9 ]
+c = [ 1, 2, 3 ]
+# mix elements from two lists in sequence, [(first,first),(second,second)]
+print([x for x in zip(a,b)])  #=> [(4, 7), (5, 8), (6, 9)]
+# get elements in columns from three lists
+print([ x for x in  zip(a,b,c)]) #=> [(4, 7, 1), (5, 8, 2), (6, 9, 3)]
+print([ x for x in zip(a,[1, 2], [8])]) #=> [(4, 1, 8)]
+#one item taken from [a], one item from  [1,2] and one item from [8]
+# 2 in [1,2] was  discarded as there is no second item in other lists. 
+
+
+
+select elements by index using __getitem__ ==>
+list  = [-2, 1, 5, 3, 8, 5, 6]
+indices  = [2, 4, 6]
+print([ x for x in map(list.__getitem__, indices)])	#=> [5, 8, 6]
+
+
+
+transpose  rows by columns in 2 D list using zip ==>
+a = [[1,2], [3,4], [5,6]]
+print([x for x in zip(*a)]) #=> [(1, 3, 5), (2, 4, 6)]
+
+
+
+transpose rows for columns in nested list using zip ==>
+employees = [
+["names", "Samy", "Hany", "Tony"], 
+["Age","23", "32", "22"], 
+["Sex", "male", "male", "male"]
+]
+t = zip(*employees) #transposed
+print([x for x in t ]) 
+
+
+
+convert list of integers to a string ==>
+a = [1,2,3,4,5]
+print( '_'.join(str(e) for e in a))
+
+
+
+convert a nested list to a dictionary ==>
+# the nested list should contain 2-element sublists to create a dict
+a = [['one', 1], ['two', 2]]
+print(dict(a))
+
+
+
+Sort a list ==>
+a = [ "d", "a", "e", "c", "b" ]
+sorted(a) 		#sort in ascending order
+sorted(a,reverse=True) 	#sort in descending order
+
+
+
+sort a list by key of lambda statement ==>
+import operator
+a = ["A","E","B","D","C", "F", "G"]
+sorted(a, key=lambda x : x == "A") 	#['E', 'B', 'D', 'C', 'F', 'G', 'A']
+sorted(a, key=lambda x : x < "D") 	#['E', 'D', 'F', 'G', 'A', 'B', 'C']
+c = ["Ann", "Barry", "Carol"]
+sorted(c, key=lambda x : x < "Carol")	 #['Carol', 'Ann', 'Barry']
+b = [1 ,2 ,3, 4, 5]
+sorted(b, key=lambda x : x % 2 == 0) 
+d = ["Ann", 2, "Cindy", 3.5, "Fifi", 4, "Carol"]
+sorted(d, key=lambda x : x == "Cindy")
+
+
+
+Shuffle a list ==>
+from random import shuffle
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
+shuffle(a)  #=> [4, 6, 9, 1, 2, 7, 5, 3, 8]
+a	#shuffle works in place and changes the original list
+
+
+
+get a number of random elements from a list ==>
+# get a random sample of a given size from a list
+import random
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+random.sample(a, 3)
+
+
+
+get all permutations of list elements ==>
+# get all permutations of a list
+import itertools
+a = [1,2,3]
+b = itertools.permutations(a)
+for x in b:
+ print( x)
+
+
+
+get element from each of  two lists using zip in parrallel ==>
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q, a in zip(questions, answers):
+  print('What is your {0}?  It is {1}.'.format(q, a))
+
+
+
+iterate over a list in reverse ==>
+for i in reversed(range(1,10,2)):
+  print(i)
+
+
+
+iterate over a list in sorted no-duplicate order ==>
+basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+for f in sorted(set(basket)):
+  print(f)

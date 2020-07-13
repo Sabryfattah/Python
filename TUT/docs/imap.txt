@@ -1,0 +1,50 @@
+Create connection object with email server ==>
+import imaplib
+server = {'hotmail': "imap-mail.outlook.com", 'gmail': "imap.gmail.com"}
+m =  imaplib.IMAP4_SSL(server["gmail"])
+print m
+
+
+
+List mailbox names in directory matching pattern ==>
+import imaplib
+server = {'hotmail': "imap-mail.outlook.com", 'gmail': "imap.gmail.com"}
+m =  imaplib.IMAP4_SSL(server["gmail"])
+m.login("sabryabdelfattah@gmail.com","Alkahira51")
+m.select("[Google Mail]/All Mail") 
+print m.list("[Google Mail]/All Mail")
+
+
+
+Select a mailbox and return count of messages (default= INBOX)==>
+import imaplib
+server = {'hotmail': "imap-mail.outlook.com", 'gmail': "imap.gmail.com"}
+m =  imaplib.IMAP4_SSL(server["hotmail"])
+m.login("sf3000@hotmail.com","sabryabdelfattah")
+response = m.select()
+print response
+
+
+
+check status of a mailbox using imaplib ==>
+import imaplib
+server = {'hotmail': "imap-mail.outlook.com", 'gmail': "imap.gmail.com"}
+m =  imaplib.IMAP4_SSL(server["hotmail"])
+m.login("sf3000@hotmail.com","sabryabdelfattah")
+m.select()
+print m.status('INBOX', '(RECENT MESSAGES UNSEEN)')
+
+
+
+get the lastest email messages using fetch ==>
+import imaplib
+server = {'hotmail':"imap-mail.outlook.com", 'gmail':"imap.gmail.com"}
+m = imaplib.IMAP4_SSL(server["hotmail"])
+m.login("sf3000@hotmail.com","sabryabdelfattah")
+m.select('INBOX')
+typ, data = m.search(None, "ALL")
+ids = data[0] # data is a list.
+id_list = ids.split() # ids is a space separated string
+latest_email_id = id_list[-1] # get the latest
+result, data = m.fetch(latest_email_id, "(RFC822)")
+print data[0][1]

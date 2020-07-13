@@ -1,0 +1,35 @@
+Restrict import * functions from a module ==>
+#Modules can have a special variable named __all__ 
+# to restrict what variables are imported when using *
+from mod import *
+first()
+second()
+
+
+Any method in a module can be import explicitly ==>
+from mod import second
+second()
+
+
+Declare global Constant in a module ==>
+import mod
+print(mod.CONSTANT)
+
+
+get instance variable value by class instance method ==>
+from mod import getter
+G = getter()
+print(G.gett())
+
+
+get object values printed by __repr__ ==>
+class Multp:
+	def __init__(self, a, b, c):
+		self.a = a
+		self.b = b
+		self.c = c
+		
+	def __repr__(self):
+		return "{}".format(self.a*self.b*self.c)
+
+print(Multp(2,3,4))

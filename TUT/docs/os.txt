@@ -1,0 +1,100 @@
+get current working directory ==>
+import os
+print os.getcwd()
+
+
+
+list entries in a directory ==>
+print os.listdir('c:/py/tut/data')
+
+
+
+list directories and files separately recursively across directories ==>
+import os
+for root, subdirs, files in os.walk('c:/py'):
+  print root, subdirs, files
+  print root    # print all folders
+  print subdirs #print subfolders
+  print files   #print files only in each folder in nested lists
+
+
+
+filter and get all files with txt extension in folder ==>
+import glob
+print glob.glob("c:/scripts/**/*.txt") #get all files in a list
+
+
+
+open a file (execute it ) by its default program ==>
+os.startfile("c:/py/tut/data/str.txt")
+
+
+
+get file from folder (read it) and display it on console ==>
+print open("c:\py.txt").read()
+
+
+
+select files from a directory matching a pattern ==>
+import fnmatch
+for file in os.listdir('c:/py/tut/data/'):
+    if fnmatch.fnmatch(file, '*.txt'):
+        print file # print all files with txt extension in data subfolder
+
+
+
+list folders only in directory  ==>
+from glob import glob
+for d in glob("c:/*/"):
+  if os.path.isdir(d):
+   print d
+
+
+
+list only files in a particular folder ==>
+from glob import glob
+for f in glob("c:/*"):
+  if os.path.isfile(f):
+   print f
+
+
+
+list content of a folder and its subfolders ==>
+import glob
+list = glob.glob("c:/py/*/**")
+for i in list:
+ if os.path.isdir(i):
+   print "Directory: ", i
+ else:
+   print "File     : ", i
+
+
+
+change working directory to another and list its cotent ==>
+import os
+print os.getcwd()
+os.chdir("c:/")
+print os.getcwd()
+
+
+
+change working directory to HOME directory, then print it out ==>
+os.chdir(os.getcwd())
+print os.getcwd()
+
+
+
+create (make) a new directory unless directory exists ==>
+import os
+import glob
+if not os.path.exists("c:/test"):
+   os.mkdir("c:/test") 
+   print glob.glob("c:/test")
+
+
+
+delete named directory ==>
+import os
+import glob
+os.rmdir("c:/test")
+print glob.glob("c:/test")

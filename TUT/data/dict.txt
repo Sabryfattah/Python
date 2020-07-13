@@ -1,0 +1,174 @@
+create empty dictionary ==>
+{}
+dict()
+
+
+create a dictionary  ==>
+# {key : value, .....etc}
+grades = {"Jane Doe" : 10, "Jim Doe" : 6}
+
+
+create a dictionary from a list of tuples ==>
+# tuples should be of two elements each, first key then value
+dict([("a", "first"),("b", "second"),("c", "third")])
+
+
+create a dictionary from two parallel lists using zip ==>
+# first list will be keys and the second values in sequence
+names = ["Nick", "Alice", "Kitty"]
+professions = ["Programmer", "Engineer", "Art Therapist"]
+dict(zip(names, professions))
+ #=>{'Nick': 'Programmer', 'Alice': 'Engineer', 'Kitty': 'Art Therapist'}
+
+
+create a dictionary from nested lists of key-value pairs ==>
+# nested sublists should contain 2 elements each
+lst = [["a", 100],["b", 200]]
+dict([k for k in lst ]) #=> {'a': 100, 'b': 200}
+music = [
+["Blind Melon", "No Rain"],
+["Damian Marty", "Ji Gong"]
+]
+dict([k for k in music]) #=> {'Blind Melon': 'No Rain', 'Damian Marty': 'Ji Gong'}
+
+
+create a dictionary from a string ==>
+# comma separated nested strings of couplets joined by separator
+string = ' "a" - 100, "b" - 200 '
+dict(e.split(' - ') for e in string.split(','))
+
+
+create a dictionary from a list with indices as keys ==>
+list = [ "a" , 100, "b" , 200 ]
+dict(enumerate(list)) #=> {0: 'a', 1: 100, 2: 'b', 3: 200}
+
+
+create a dictionary from a single list ==>
+list = [ "a" , 100, "b" , 200 ]
+dict(zip(*[iter(list)]*2))
+
+
+create a dictionary using keywords arguments ==>
+dict(sape=4139, guido=4127, jack=4098)   #=> {'sape': 4139, 'jack': 4098, 'guido': 4127}
+
+
+create a dictionary using  comprehensions  ==>
+{x: x**2 for x in (2, 4, 6)} #=> {2: 4, 4: 16, 6: 36}
+
+
+add keys and values to dictionary  ==>
+grades = {}
+grades["Dorothy Doe"] = 9 #=> {'Dorothy Doe': 9}
+
+
+get key of a given value ==>
+h = { "a" : 100, "b" : 200, "c" : 300, "d" : 300 }
+[key for key, value in h.items() if value == 100] #=> a
+
+
+get a value of a given key using get  ==>
+h = { "a" : 100, "b" : 200, "c" : 300, "d" : 300 }
+h.get("a")
+h.get("b")
+
+
+get value of a given key  ==>
+options = {'font_size' : 10, 'font_family' : "Arial"}
+options['font_size']
+grades = {"Jane Doe" : 80, "Jim Doe" : 76}
+grades["Jane Doe"]
+
+
+get all the values of a dictionary ==>
+h = {
+"cat" : "feline", 
+"dog" : "canine", 
+"cow" : "bovine" }
+h.values() #dict_values(['feline', 'canine', 'bovine'])
+
+
+get all keys or values in the dictionary ==>
+h = {
+"a" : 100, 
+"b" : 200, 
+"c" : 300, 
+"d" : 400 }
+h.keys()  	#=> dict_keys(['a', 'b', 'c', 'd'])
+h.values()  	#=> dict_values([100, 200, 300, 400])
+[k for k  in h.keys()]    #['a', 'b', 'c', 'd']
+[v for v  in h.values()] #[100, 200, 300, 400]
+
+
+search for any occurence of key or value in dictionary ==>
+dict = {
+'name' : "Mark Anthony", 
+'age'  :  25,
+'sex'  :  "male",
+'address' : "Alexandria",
+'tel'  : "unknown"
+}
+any(v == "unknown" for v  in dict.values())   #True
+any(k == "age" for k  in dict.keys())	#True
+
+
+search for key in dict and return key-value pair ==>
+ke = 'colors'
+h = {
+"colors" : ["red", "blue", "green"],
+"fonts"  : ["Arial", "Tahoma", "Times Roman" ]}
+for k , v in h.items():
+ if k == ke:
+  print(k,v)
+
+
+search dict for value and return key-value pairs ==>
+a = {1 : "one", 2 : "two", 3 : "three", "ii" : "two"}
+val = 'two'
+for k , v in a.iteritems():
+ if v == val:
+  print k,v
+
+
+search for key or value in a dictionary ==>
+h = { "a" : 100, "b" : 200 }
+"b" in h     	 	# in keyword
+200 in h     	 	# False as ' in'  checks keys only
+'b' in h.keys()    	# search dict.keys
+100 in h.values()	# search dict.values
+
+
+itertate over key:value pairs in a dictionary  ==>
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k, v in knights.items():
+  print( k, v)
+
+
+modify | change keys or values in dict ==>
+h = { "a" : 100, "b" : 200 }
+for k,v in h.items():
+ if k == "a": k = "alpha" # change a single key name
+ v  += v		  #double values in all  dict values
+ k = k+" key"
+ print( k+"  value is  ", v)
+
+
+convert dict to nested list ==>
+h = { "c" : 300, "a" : 100, "d" : 400, "c" : 300, "b" : 200 }
+[[k, v] for k,v in h.items()] #[['c', 300], ['a', 100], ['d', 400], ['b', 200]]
+
+
+empty | remove all data from  dict ==>
+h = { "a": 100, "b" : 200 }
+h.clear()
+
+
+update a key in a dictionary  ==>
+tel = {'jack': 4098, 'sape': 4139}
+tel['jack'] = 9988
+tel
+
+
+delete a key:value pair in dict using del ==>
+tel = {'jack': 4098, 'sape': 4139}
+del tel['sape']
+tel

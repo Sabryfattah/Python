@@ -1,0 +1,11 @@
+list all types of names (variables, modules, functions) in module ==>
+import __builtin__
+funcs = dir(__builtin__)  
+for f in funcs:
+ print f
+
+
+
+make a module execute directlty by main statement ==>
+if __name__ == "__main__":
+  print "Hello World"

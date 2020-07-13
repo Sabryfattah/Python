@@ -1,0 +1,80 @@
+search for  dict pairs based on given conditions ==>
+h = { "Adam" : 100, "Bell" : 100, "Diane" : 300, "Jerry" : 200, "Fiona" : 50 }
+[(k, v) for k, v in h.items() if v > 100]
+
+
+
+get the number of key-value pairs in dict ==>
+h = { "d" : 100, "a" : 200, "v" : 300, "e" : 400 }
+len(h)
+
+
+
+merge two dictionaries and remove duplicates ==>
+h1 = { "a" : 100, "b" : 200 }
+h2 = { "b" : 254, "c" : 300 }
+h1.update(h2)
+h1 #value of duplicate key from the second dict is used instead.
+
+
+
+substitute contents of dictionary with another ==>
+h = { "a" : 100, "b" : 200 }
+h = { "c" : 300, "d" : 400 }
+h
+
+
+
+search for key or value in a dict  ==>
+h = { 1 : "a", 2 : "b", 3 : "c" }
+counter = 0
+for k,v in h.items():
+  if k == 1 or v == "b" : print(k,v)
+
+
+
+list as value of dictionary keys==>
+moons = {
+'earth' : ['luna'],
+'mars'  : ['deimos', 'phebos'],
+'jupiter' : ['calisto', 'io', 'europa']
+}
+moons['mars']    #  ['deimos', 'phebos']
+moons['jupiter'] #=> calisto , io , europa
+
+
+
+search for | get  value in nested dictionaries ==>
+player = {
+'babe' : {
+    'hits' : 2873,
+    'home_runs' : 714,
+    'ops' : 474
+    },
+'barry' : {
+    'hits' : 2935,
+    'home_runs' : 762,
+    'ops' : 444
+    }
+}
+players['babe']['home_runs'] #=> 714
+
+
+
+Convert dict to nested list ==>
+dict = { 1 : "a", 2 : "b", 3 : "c" }
+[ k for k in dict ] 		# A list of the keys
+[ v for v in dict.values() ] 	# A list of the values
+[ [k,v] for k, v in dict. items() ]      # list of key value pairs
+
+
+
+read csv  comma-separated file into dict ==>
+import csv
+reader = csv.reader(open("C:\PY\DATA/test.csv", 'r'))
+d = {}
+for row in reader:
+   k, v = row
+   d[k] = v
+
+d

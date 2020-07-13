@@ -1,0 +1,184 @@
+create a function that writes the Fibonacci series ==>
+def fib(n):    # write Fibonacci series up to n
+  """Print a Fibonacci series up to n."""
+  a, b = 0, 1
+  while a < n:
+    print a,
+    a, b = b, a+b
+# Now call the function we just defined:
+print fib(2000)
+
+
+
+rename a function and use its action with the new name ==>
+def fib(n):    # write Fibonacci series up to n
+  """Print a Fibonacci series up to n."""
+  a, b = 0, 1
+  while a < n:
+    print a,
+    a, b = b, a+b
+print fib
+f = fib
+print f
+print f(100)
+
+
+
+write a function that return result ==>
+def fib2(n):  # return Fibonacci series up to n
+	"""Return a list containing the Fibonacci series up to n."""
+	result = []
+	a, b = 0, 1
+	while a < n:
+		result.append(a)    # see below
+		a, b = b, a+b
+	return result
+f100 = fib2(100)   # call it
+print f100         # write the result
+
+
+
+assign default arguments in user ask function ==>
+def ask_ok(prompt, retries=4, complaint='Yes or no, please!'):
+    while True:
+        ok = raw_input(prompt)
+        if ok in ('y', 'ye', 'yes'):
+            return True
+        if ok in ('n', 'no', 'nop', 'nope'):
+            return False
+        retries = retries - 1
+        if retries < 0:
+            raise IOError('refusenik user')
+        print complaint
+ask_ok('Do you really want to quit?')
+ask_ok('OK to overwrite the file?', 2)
+ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')
+
+
+
+default argument value assigned at function definition ==>
+i = 5
+def f(arg=i):
+    print arg
+i = 6
+print f() #5
+
+
+
+default arguments as a list accumulates the arguments passed ==>
+def f(a, L=[]):
+    L.append(a)
+    return L
+print f(1)
+print f(2)
+print f(3)
+def f(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+print f(1)
+print f(2)
+print f(3)
+
+
+
+use keyword arguments to write functions ==>
+def parrot(
+	voltage, 
+	state='a stiff', 
+	action='voom', 
+	type='Norwegian Blue'):
+    print "-- This parrot wouldn't", action,
+    print "if you put", voltage, "volts through it."
+    print "-- Lovely plumage, the", type
+    print "-- It's", state, "!"
+
+print parrot(1000) 		# 1 positional argument
+print parrot(voltage=1000)  	# 1 keyword argument
+print parrot(voltage=1000000, action='VOOOOOM') # 2 keyword arguments
+print parrot(action='VOOOOOM', voltage=1000000) # 2 keyword arguments
+print parrot('a million', 'bereft of life', 'jump') 
+			# 3 positional arguments
+print parrot('a thousand', state='pushing up the daisies')
+			# 1 positional, 1 keyword
+
+
+
+use dict and tuples as formal arguments and keywords in function ==>
+def cheeseshop(kind, *arguments, **keywords):
+    print "-- Do you have any", kind, "?"
+    print "-- I'm sorry, we're all out of", kind
+    for arg in arguments:
+        print arg
+    print "-" * 40
+    keys = sorted(keywords.keys())
+    for kw in keys:
+        print kw, ":", keywords[kw]
+
+cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper='Michael Palin',
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+
+
+
+pass a variable number of arguments to a function ==>
+def write_multiple_items(file, separator, *args):
+    file.write(separator.join(args))
+
+
+
+unpack function arguments out of a list ==>
+range(3, 6)             # normal call with separate arguments
+[3, 4, 5]
+args = [3, 6]
+range(*args)            
+# call range function with arguments unpacked from a list
+
+
+
+unpack dictionary into keyword function arguments ==>
+def parrot(voltage, state='a stiff', action='voom'):
+  print "-- This parrot wouldn't", action,
+  print "if you put", voltage, "volts through it.",
+  print "E's", state, "!"
+
+d = {
+"voltage": "four million", 
+"state"  : "bleedin' demised", 
+"action" : "VOOM"}
+parrot(**d)
+
+
+
+use lambda as function within function ==>
+def make_incrementor(n):
+  return lambda x: x + n
+  
+f = make_incrementor(42)
+print f(0)
+print f(1)
+
+
+
+pass sort lambda function as an argument to another function ==>
+pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+pairs.sort(key=lambda pair: pair[1])
+print pairs
+
+
+
+use multi-line docstring to describe purpose of function ==>
+def my_function():
+  """Short, concise summary of the object’s purpose.
+    (Starts with Capital letter and ends with period)
+    (separated from description by blank line)
+
+  More paragraphs describing the object’s calling conventions, 
+  its side effects..etc.
+  """
+  pass
+
+print my_function.__doc__

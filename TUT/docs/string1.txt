@@ -1,0 +1,224 @@
+Print ==>
+x = 12
+y = 22
+print("Hello World")		#brackets
+print("The answer is", 2*2)	#operation
+print(x, end=" ")		#end may be \n, space or none to join multiple prints
+print(x, y,  end="\n")
+print()
+print("fatal error", file=sys.stderr)
+print((x, y)) #tuple
+print("There are <", 2**32, "> possibilities!", sep=" ")
+
+
+
+Make a copy of string==>
+#a string is a collection, use [:] to get a copy of all characters.
+hi = "Hello World"
+hi[:] 
+
+
+
+format align digits right : 
+------------------------------
+#%Nd where N is number of spaces and d reference to value formated
+"%10d" % 123
+
+
+
+format  align digits left : 
+-------------------------------
+#%-Nd add - minus sign before N for left align
+"%-10d %s" % (123,"number")
+
+
+ 
+add number of zeros to digits format ==>
+#use the quoted "format code" followed by %  then variable
+# to add N 0's (number of zeros) to digits : %0Nd
+#where N is the total number of zeros and digits and more than length of digits.
+#If N is less than number of digits, no zeros are added to digits.
+"%05d" % 123 #=> 00123
+
+
+
+format string by {} ==>
+#use "{}".format("string" or variable)
+#to format a single string :
+"foo = {0}".format('bar') #=> foo = bar
+
+
+
+use more than one variable to format  string by {} ==>
+"{0},{1},{2}".format('foo', 'bar', 'zar') #=> foo,bar,zar
+
+
+
+align strings right by spaces to format  using {} ==>
+"{:10},{:10},{:10}".format('foo', 'bar', 'zar')   #=>foo       ,bar       ,zar
+
+
+
+align strings left by spaces to format  using {} ==>
+"{:<10},{:<10},{:<10}".format('foo', 'bar', 'zar')  #=>foo       ,bar       ,zar (default as above)
+
+
+
+align strings right by  spaces to format using {}==>
+"{:>10},{:>10},{:>10}".format('foo', 'bar', 'zar')   #=>        foo,       bar,       zar
+
+
+
+repeat string ==>
+#multiply by times using *
+"Ho! " * 3
+
+
+
+hide string from console ==>
+"Ho! " * 0 # hide string multiply by zero
+
+
+
+concatenate ( join ) strings ==>
+#use plus sign + between strings to join them
+"Hello from " + "Sam" # use + between them
+"Hello from ""Sam"   #put strings next to each other to join them
+
+
+
+add space between joined strings ==>
+#use comma to add a space between joined strings
+print("Hello from ","Sam")	#comma add space between parts.
+
+
+
+write strings which span many lines  ==> --------------
+s = ("Hello from"
+" Sam")	#enclose lines between brackets
+print(s)
+s2 =( "Hello from"+
+" Sam")	#enclose lines between brackets with + plus sign
+print(s2)
+s3 = "Hello from"\
+" Sam"	#end each line with \ backslah
+print(s3)
+s4 = """ Hello from
+Sam """	#triple quotes keep formating and linefeeds
+print(s4)
+
+
+
+append object or variable or string  ==>
+a = "hello "
+a+"world"
+a+chr(33) #33 is a codepoint for "!"
+
+
+
+compare two strings  ==>
+"abcdef" == "abcde" #number of characters
+"abcdef" == "abcdef" #True
+"abcdef" == "abcdefg" #False
+"abcdef" == "ABCDEF" #False, Capital Letters have higher value
+
+
+
+find substring in string==>
+#string.find("pattern", offset, end), 
+#returns offset if substring is found; 
+#returns -1 if string is not found
+str = "Hello World"
+str.find("Sam")  #=> -1 #string not found
+str.find("H", 3, -1) #=> from character 4 till end, not found (-1)
+str.find("W", 3, -1) #=> found at offset 6  searching from offset 3 to end of string
+
+
+
+extract substring from string using find() ==>
+s = "http://Everyday the sun shines on the world.html"
+# get the offset of start and end substrings
+start = s.find("the")
+end = s.find("on", start)
+# slice the string between start and end substrings
+substring = s[start:end]
+print substring #=> the sun shines
+
+
+
+extract a substring from a string using Regex  ==>
+import re
+#extract name of web site between (http://) and (html)
+s = "http://Everyday the sun shines on the world.html"
+m = re.search('(?<=http://)(.+?)(?=\.html)', s)
+print(m.group())
+
+
+
+replace substitute some or all of content of string ==>
+str = "Everyday the sun shines on the world"
+new_str = str.replace("Everyday", "Always,")
+print(new_str)
+
+
+
+capitalize every word in a string ==>
+str = "everyday the sun shines on the world"
+str.title()	#every word capitalized
+str.capitalize() 	#only the first word
+
+
+
+center string to width and padded  ==>
+"hello".center(4)         #=> nothing happends as width less than string length
+"hello".center(20)       	#=>        hello           (padded with spaces)
+"hello".center(20, '*') 	#=> *******hello******** (padded with '*')
+
+
+
+remove trailing (right side) whitespace (\n,\r,\r\n,\s,\t) ==>
+"Whitespace    " .rstrip()   #whitespace removed
+
+
+
+remove training newline \n from end of line==>
+"Newline\n".rstrip()	#trailing newline removed
+"hello\r\n".rstrip('\r')	#nothing removed, no trailing \r
+"hello\n\r".rstrip('\n') #nothing removed, no trailing \n
+
+
+
+remove traling linefeed at end of line ==>
+"Linefeed\r".rstrip('\r') 	#trailing \r removed
+"Nothing \n there".rstrip('\n') 	#no trailing \n
+
+
+
+remove trailing characters from end of line or string ==>
+repr("hello".rstrip("llo"))  	#trailing llo removed
+
+
+
+remove multiple linefeeds from end of line ==>
+"Multiple Linefeeds\r\n\r\n".rstrip()	#all trailing line feeds removed
+"Nothing here\r\n\r\r\n".rstrip('')) 	#nothing removed
+
+
+
+remove last character of String ==>
+"string\r\n"[:-1]	#remove \n only
+"string\n\r"[:-1]	#remove only \r
+"string\n"[:-1]	#remove \n
+"string"[:-1] 	#remove end character 'g'
+"x"[:-1] 	       	#remove only character left
+
+
+
+get the first character in the string ==>
+ "abcde"[0]
+
+
+
+clear, empty or make string nil characters ==>
+a = "abcde"
+a = None

@@ -1,0 +1,239 @@
+find a pattern matching substring at start of string ==>
+#use re.match then match group to find first occurence.
+import re
+string = "It rains cats and dogs"
+match = re.match('It', string)
+print match.group()
+match = re.match('cats', string)
+print match
+
+
+
+find a pattern matching substring anywhere in string ==>
+import re
+string = "It rains cats and dogs"
+match = re.search('cats', string)
+print match.group()
+
+
+
+find all matching substrings anywhere in string ==>
+import re
+string = "There are wild cats, domestics cats and pussy cats"
+match = re.findall('cats', string)
+print match
+
+
+
+find the matching substring using group() ==>
+import re
+string = "Ethnic groups in UK: Asians, Africans and Whites groups"
+match = re.search("UK: (Asians), (.*) and (Whites)", string)
+print match.group()
+print match.group(0)
+print match.group(1)
+print match.group(2)
+print match.group(3)
+
+
+
+find position of a matching substring in a string ==>
+import re
+string = "Ethnic groups in UK: Asians, Africans and Whites groups"
+match = re.search("Asians", string)
+print match.start()
+print match.span()
+
+
+
+find a pattern matching word in a string case-insensitive ==>
+import re
+string = "Ethnic groups in UK: Asians, Africans and Whites groups"
+match = re.search("asians", string, re.I)
+print match.group()
+match = re.search("uk", string, re.IGNORECASE)
+print match.group()
+
+
+
+find a pattern matching word in a string across multi-lines ==>
+import re
+string = """
+Ethnic groups in UK: 
+====================
+Asians
+Africans
+Whites"""
+match = re.search("Asians", string, re.M)
+print match.group()
+match = re.search("UK", string, re.MULTILINE)
+print match.group()
+
+
+
+replace substring matching a pattern in a string ==>
+import re
+string = "Ethnic groups in UK: Asians, Africans and Whites groups"
+pattern = re.compile("UK")
+new_string = pattern.sub("Britian", string)
+print string
+string2 = re.sub("UK", "BRITIAN", string)
+print string2
+print new_string
+#also use replace() and translate() built_in functions
+
+
+
+compile regex search pattern into an object for matching ==>
+import re
+p = re.compile('A.*?\s')
+string = "All and any answer will be scored"
+print p.match(string).group()
+print p.search(string).group()
+
+
+
+find any decimal digit character in a string ==>
+import re
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\d', string)
+print re.findall('\d+', string)
+print re.findall('\d{3}', string)
+print re.findall('\d{1,3}', string)
+print re.findall('\s\d', string)
+print re.findall('[0-9].?\s', string)
+print re.findall('[^0-9].*?\s', string)
+
+
+
+find one or more (alphanumeric) words in a string ==>
+import re
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\w+', string)
+
+
+
+find words in a string starting with given character ==>
+import re
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('L\w+', string)
+
+
+
+find words in a string of given length ==>
+import re
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\s\w{4}\s', string)
+
+
+
+find substring of one or more characters in string ==>
+import re
+string = "A cat over hot tin roof"
+print re.findall('.*', string)
+print re.findall('\s\w{3}\s?', string)
+print re.findall('\s\w+\s*', string)
+print re.findall('\s.{3}\s', string)
+print re.findall('\s...\s', string)
+
+
+
+use multi-line pattern to find match in string ==>
+charref = re.compile(r"""
+ &[#]                # Start of a numeric entity reference
+ (
+     0[0-7]+         # Octal form
+   | [0-9]+          # Decimal form
+   | x[0-9a-fA-F]+   # Hexadecimal form
+ )
+ ;                   # Trailing semicolon
+""", re.VERBOSE)
+
+
+
+use alternative pattern forms in search string match ==>
+import re
+print re.findall('From|to.*', 'From Here to Eternity')
+
+
+
+use grouping in pattern matching regex search ==>
+import re
+string = """From: author@example.com
+User-Agent: Thunderbird 1.5.0.9 (X11/20061227)
+MIME-Version: 1.0
+To: editor@example.com
+"""
+print re.findall('To:(.*)$' ,string)
+match = re.search('To:(.*)$' ,string)
+print match.group(1)
+for x in ['User','To','From','MIME']:
+  print "============== "+x+" =============="
+  m = re.search('(%s.*):(.*)' % x, string)
+  print m.group(0)
+  print m.group(1)
+  print m.group(2)
+
+
+
+use backreference \1 in pattern matching ==>
+import re
+p = re.compile(r'(\b\w+)\s+\1')
+print p.search('Paris in the the spring').group()
+
+
+
+use positive lookafter in pattern matching ==>
+import re
+string = """From: author@example.com
+User-Agent: Thunderbird 1.5.0.9 (X11/20061227)
+MIME-Version: 1.0
+To: editor@example.com
+"""
+print re.findall('(?<=To:).*$' ,string)
+
+
+
+use positive lookahead in pattern matching ==>
+import re
+string = """From: author@example.com
+User-Agent: Thunderbird 1.5.0.9 (X11/20061227)
+MIME-Version: 1.0
+To: editor@example.com
+"""
+print re.findall('From:(.*(?=.com))' ,string)
+
+
+
+use named groups in pattern matching regex ==>
+import re
+import time
+p = re.compile(r'(?P<word>\b\w+\b)')
+m = p.search( '(((( Lots of punctuation )))' )
+print m.group('word')
+print m.group(1)
+m = re.match(r"(?P<first_name>\w+) (?P<last_name>\w+)", "Malcolm Reynolds")
+print m.groupdict()
+
+
+
+split string by a regex matching pattern ==>
+import re
+print re.split('\s', "This is an example")
+print re.split('are', "words are words are words")
+print re.split('\W+', 'Words, words, words.')
+print re.split('(\W+)', 'Words, words, words.')
+print re.split('\W+', 'Words, words, words.', 1)
+print re.split('[a-f]+', '0a3B9', flags=re.IGNORECASE)
+
+
+
+make a phonebook from string of contacts using regex split ==>
+import re
+text = """Ross McFluff: 834.345.1254 155 Elm Street
+Ronald Heathmore: 892.345.3428 436 Finley Avenue
+Frank Burger: 925.541.7625 662 South Dogwood Way
+Heather Albrecht: 548.326.4584 919 Park Place"""
+entries = re.split("\n+", text)
+print [re.split(":? ", entry, 3) for entry in entries]
+#maxsplit 4 to split house nimber from street name

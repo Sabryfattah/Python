@@ -1,0 +1,46 @@
+create a tuple ==>
+t = 12345, 54321, 'hello!'
+print t[0]
+print t
+
+
+
+create nested tuple ==>
+t = 12345, 54321, 'hello!'
+u = t, (1, 2, 3, 4, 5)
+print u
+
+
+
+you can not modify a tuple ==>
+#Tuples are immutable:
+t = 12345, 54321, 'hello!'
+t[0] = 8888
+
+
+
+use tuple to contain mutable objects ==>
+v = ([1, 2, 3], [3, 2, 1])
+print v
+
+
+
+create an empty tuple ==>
+empty = ()
+print len(empty)
+
+
+
+create one item tuple  ==>
+singleton = 'hello',    # <-- note trailing comma
+print len(singleton)
+print singleton
+
+
+
+unpack a tuple sequence into variables ==>
+t = (12345, 54321, 'hello!')
+x, y, z = t #sequence unpacking
+print x
+print y
+print z

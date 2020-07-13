@@ -1,0 +1,140 @@
+create class and instance variables ==>
+class Dog:
+    kind = 'canine'         # class variable shared by all instances
+    def __init__(self, name):
+        self.name = name    # instance variable unique value in each instance
+
+d = Dog('Fido')
+e = Dog('Buddy')
+d.kind   #=> canine (shared by all dogs)
+e.kind   #=> canine (shared by all dogs)
+d.name   #=> Fido (unique to d)
+e.name   #=> Buddy (unique to e)
+
+
+
+call method in class with instance variable ==>
+class Klass():
+#even if a function in class has not arguments it must have 'self' as its argument
+#a function in class must have first parameter as 'self'
+    def hi(self, name):
+        print('Hello', name)
+a = Klass()    #insatiation of an object a means creating a class instance
+a.hi('Sabry')  #prints 'Hello Sabry !
+
+
+
+use methods from superclass by inheritance ==>
+#create a class as a normal
+class Klass():
+	def method(self):
+		print("Hello World")
+
+	def eql(self):
+		a = [1,2,3,4]
+		b = [1,2,3,4]
+		print(a == b)
+#then create a superclass which inherits from Klass even if it is empty
+# pass means do nothing
+class SuperKlass(Klass):
+	pass
+#create an instance of superclass
+x = SuperKlass()
+#call method from Klass on the Superclass instance
+x.method()
+x.eql()
+
+
+
+create more than one object instance from a class ==>
+class Animal():
+	def __init__(self, animal):
+		self.animal = animal
+
+	def species(self):
+	#to use an instance variable inside class methods use self.var_name
+		print(self.animal, " is canine")
+
+dog = Animal("dog")
+fox = Animal("fox")
+wolf = Animal("wolf")
+dog.species()
+fox.species()
+wolf.species()
+
+
+
+inherit methods from a specific class ==>
+class Sclass():	#Sclass is superclass
+ def m(self):
+  print("Hello")
+
+class Klass(Sclass): 	#Klass inherits from Sclass
+  pass
+
+obj = Klass()
+obj.m() 		#m method is a Sclass method
+
+class Mammal():
+  def has_heart_beat(self):
+    return True
+
+class Dog(Mammal):
+  pass
+
+dog = Dog()
+print(dog.has_heart_beat())
+
+
+
+get the superclasses of a class by 'ancestors' method ==>
+import inspect
+class Mammal(object):
+  def has_heart_beat(self):
+    return True
+
+class Dog(Mammal):
+  pass
+print inspect.getmro(Dog) #get members of a class
+print list(Dog.__bases__) #get parent of a class
+
+
+
+call a class method directly without object (instance) ==>
+class Klass():
+  @classmethod #to use method without instance declare it as @classmethod
+  def method(cls):
+    print "this is a class method"
+  
+  def add(self):
+    print 2 + 3
+#You can call class methods on the class name without instance object first
+Klass.method()
+a = Klass()
+a.add()
+
+
+
+get all instance variables  vars in a class ==>
+class hi:
+  def __init__(self):
+    self.ii = "foo"
+    self.kk = "bar"
+
+hi_obj = hi()
+print(hi_obj.__dict__.keys())
+print(vars(hi()))
+print(vars(hi()).keys())
+
+
+
+use class as a record using empty class ==>
+class Employee:
+    pass
+john = Employee()  # Create an empty employee record
+# Fill the fields of the record
+john.name = 'John Doe'
+john.dept = 'computer lab'
+john.salary = 1000
+print john.__dict__
+#=> {'salary': 1000, 'dept': 'computer lab', 'name': 'John Doe'}

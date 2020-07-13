@@ -1,0 +1,160 @@
+List : Sort ==>
+#<  sorted(list) > 		 # ascending order 
+#<  sorted(list, reverse = True) > # decending order
+a = [ "d", "a", "e", "c", "b" ]
+print(sorted(a)) 		#in ascending order
+print(sorted(a,reverse=True)) 	#in descending order
+
+
+Shuffle a list ==>
+from random import shuffle
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
+shuffle(a)
+print(a) #shuffle works in place and changes original list
+
+
+List : get random elements  ==>
+# import random
+#< random.sample(list, number of elements to select) >
+import random
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+rs = random.sample(a, 3)
+print(rs)
+
+
+List : get repeated permutations of elements ==>
+#< itertools.permutations(list) > 
+import itertools
+a = ['a', 'b', 'd']
+b = itertools.permutations(a)
+for x in b: print("".join(x))
+
+
+List : print all items  in a list ==>
+# < for .x. in  list : print x > 
+L  = ['cat', 'window', 'defenestrate']
+for x in L : print x 
+
+
+List : insert element at index  ==>
+# <  list.insert(index, element>
+list = ['cat', 'window', 'defenestrate']
+list.insert(2, "dog") #insert 'dog' at index 2
+print(list)
+
+
+List : select elements by index   ==>
+# < list[index] >
+list = ['cat', 'window', 'defenestrate', [234554, 12.23], "congratulation", {'name' : 'Karl'}]
+print list[2]
+
+
+List: select element by criterion ==>
+# [x for x in list if criterion(x) ]
+#  e.g.   type(x),   x.startswith(""),  len(x) >= int
+list = ['cat', 'window', 'defenestrate', [234554, 12.23], "congratulation", {'name' : 'Karl'}]
+print [x for x in list if type(x) == str and x.startswith('d')]  #list comprehension
+print [x for x in list if type(x) == dict] #by type
+print [x for x in list if len(x) >= 6] #by  size
+
+
+List: build from  range  ==>
+# range is not a function but a sequence
+#  <  list(range(start,end,step)) >
+print list(range(10))      	#0 to 9, 10 never included, starts with 0
+print list(range(2,12,2))      	#2 to 11, add 2
+print list(range(1,20,3))      	#1 to 19, add 3
+
+
+Range : get element   ==>
+#range is not a function but a sequence
+print range(10)[3:7] #starts at 3 and end at 6, 7 not included
+print range(10).index(3)
+
+
+List : of odd or even numbers  ==>
+print(list(range(1, 10, 2))) #start 1, limit 10 , step 2
+print(list(range(2, 11, 2))) #start 2, limit 11 , step 2
+
+
+List :  of negative decreasing numbers  ==>
+L = list(range(-110, -10, 10))
+print sorted(L)
+
+
+List : print elements  with indices ==>
+list = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(list)): 
+  print i, ":" , list[i] 			#range of list size used as an index
+for i,e in enumerate(list): 
+  print i,":" , e    			#use enumerate
+
+
+List : Add an item to  end  ==>
+# < list.append(element)
+list = [1, 2, 3, 4, 5]
+list.append(6)
+print(list)
+
+
+List : add another list to end (extend)  ==>
+#extend add list to end of another, while + adds list before or after depending on position
+list1 = [1,2,3]
+list2  = [7,8,9]
+list = [4,5,6]
+list.extend(list1)	 #adds [L] to end of list
+print(list)
+print(list2+list) 	#adds a to start of list
+print(list+list2) 	#adds a to end of list
+
+
+List : remove item by its value ==>
+list = [1, 2, 'item', 3, 4, 5]
+list.remove('item')
+print(list)
+
+
+List : remove item by index ==>
+#you have to get item index first if not known
+list = [1, 2, 'item', 3, 4, 5]
+index = list.index("item")
+list.remove(list[index])
+print(list)
+
+
+List : remove last item and get it  ==>
+# < list.pop() > return item value
+list = [1,2,3,4,5] 	#remove 5
+a = list.pop() 	#needs () even if no argument given
+print a
+print list
+
+
+List : remove item at given position and get it  ==>
+# < list.pop(index) >
+list = [1,2,3,4,5] 	#remove 4
+index = 3
+a = list.pop(index) 	#pop is a function with its arg =  index
+print a
+print list
+
+
+List : get index of a given value  ==>
+# < list.index(value) >
+list = [1, 2, 'item', 3, 4, 5] #index of 'item'
+i = list.index('item')
+print i
+
+
+List : count occurences of item appears ==>
+# <list.count(value) >
+list = [1, 2, 'x', 3, 4, 'x' , 5, 'x', 6] 	#how many xs?
+print list.count('x')
+print list.count(list[5])		 #value at index 5 is 'x'
+
+
+List : sort items  ==>
+#< list.sort(cmp=None, key=None, reverse=False) >
+a = [66.25, 333, 333, 1, 1234.5]
+a.sort()		 #list is sorted in place (modified) and a.sort() returns None
+print a

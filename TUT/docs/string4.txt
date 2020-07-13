@@ -1,0 +1,27 @@
+capitalize each and all words in a string ==>
+import string
+s = 'The quick brown fox jumped over the lazy dog.'
+string.capwords(s)
+
+
+
+translate set of characters in a string to another ==>
+#first create a translation object from two parallel strings using maketrans function.
+import string
+trans_obj = str.maketrans('abcdef', '123456')
+s = 'The quick brown fox jumped over the lazy dog.'
+# then swap each character in first string with parallel character from second string
+s.translate(trans_obj)
+
+
+
+
+format wrap text output to fit line width  ==>
+import textwrap
+sample_text = '''
+The textwrap module can be used to format text for output in
+situations where pretty-printing is desired. It offers
+programmatic functionality similar to the paragraph wrapping
+or filling features found in many text editors.
+'''
+print(textwrap.dedent(sample_text))

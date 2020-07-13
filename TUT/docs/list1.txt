@@ -1,0 +1,349 @@
+create empty list ==>
+[]
+list()
+
+
+
+create list from range==>
+L = list(range(10)) #range
+
+
+
+create a list  ==>
+list = [1,2,3,4,5] 
+
+
+
+ list of any  object ==>
+["one", "two", "three"]	#strings
+ [1, "two", 3.0]		#any object
+
+
+
+list of similar object ==>
+list = [True]*3
+
+
+
+ empty list of given size ==>		
+print [None]*10  #empty list of size 10
+
+
+
+ empty nested lists  of given size ==>
+print [[]*3]*3 	#list of list
+
+
+
+ empty list of dictiaries of given size ==>
+print [{}]*3 	#list of dicts
+
+
+
+get element in list by index  ==>
+list = [1, 2, 3, 4, 5, 6]
+list[2] 	#3
+
+
+
+get elements in list upto but not including index ==>
+list = [1, 2, 3, 4, 5, 6]
+list[:4] #=> [1, 2, 3, 4]
+
+
+
+get elements in list between indices but not including last ==>
+list = [1, 2, 3, 4, 5, 6]
+list[1:3] #=> [2, 3]
+
+
+
+get elements in list from index upto last ==>
+list = [1, 2, 3, 4, 5, 6]
+print list[3:]
+
+
+
+get elements backwards from index but not including it ==>
+list = [1, 2, 3, 4, 5, 6]
+list[:-1]
+list[:-3] #=> [4, 5, 6]
+
+
+
+get elements in list in reverse ==>
+list = [1, 2, 3, 4, 5, 6]
+list[::-1] #=> [6, 5, 4, 3, 2, 1]
+
+
+
+skip  some elements in list  ==>
+list = [1, 2, 3, 4, 5, 6]
+list[::-1] #=> not skipping any
+list[::-2] #=> [6, 4, 2] skipping every second element
+list[::-3] #=> [6, 3] skipping every third element
+list[::-4] #=> [6, 2] skipping every fourth element
+
+
+
+slice list by index and step ==>
+arr = [1, 2, 3, 4, 5, 6]
+arr[slice(4)] #=> [1, 2, 3, 4]
+#from start upto but not including index 4 (fifth element)
+arr[slice(2,4)] #=> [3, 4]
+#between index 2 and 4(index 4 not included)
+arr[slice(1,4,2)]	#=> [2, 4]
+#between index 1 and 4, step 2 (every second element in steps)
+
+
+
+get first, last, or first n of list elements ==>
+arr = ['a', 'b', 'c', 'd', 'e', 'f']
+arr[0] 		#=> first element
+arr[-1]  		#=> last element
+arr[0:3]		#=> first 3 elements
+arr[3:]		#=> remaining elements after 3 dropped
+
+
+
+get the number of elements in a list ==>
+browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
+len(browsers)
+
+
+
+check if list is empty ==>
+browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
+browsers == [] #=> False
+
+
+
+check if list contains a given element ==>
+#use <item> in <list>
+browsers = ['Chrome', 'Firefox', 'Safari', 'Opera', 'IE']
+'IE' in browsers #=> True
+
+
+
+add elements to end of list ==>
+L = [1, 2, 3, 4]
+L.append(5) 	#=> add 5 to end of array
+L.append(6)	#return of function append is None
+L #=> [1, 2, 3, 4, 5, 6]
+
+
+
+insert elements at any place in list ==>
+#=> insert(index, object)
+L = [1, 2, 3, 4]
+L.insert(1,2) 	#=> [1, 2, 2, 3, 4]
+L.insert(3, [1,2,3,4])   #=> [1, 2, 2, [1, 2, 3, 4], 3, 4]
+
+
+
+remove and return item at index (default last) ==>
+L =  [1, 2, 3, 4, 5, 6]
+R = L.pop() # R equals 6
+S = L.pop(3) # S equals 4 #=> [1, 2, 3, 5]  4 Removed at index 3
+
+
+
+remove first occurence of element in list ==>
+L =  [1, 2, 3, 4, 3, 6]
+L.remove(3) # [1, 2, 4, 3, 6] removed first matching element
+
+
+
+remove element at a given index in a list ==>
+L = [1, 2, 4, 3, 6]
+del L[2] 	#=> [1, 2, 3, 6] 
+# del function removed first matching element at index 2
+
+
+
+remove duplicates from a list ==>
+#NO UNIQ IN PYTHON, USE list(set(list))
+a = list(set([ 1, 1, 2, 2, 3, 3, 4, 5 ]))  		#=> [1, 2, 3, 4, 5]
+b = list(set(['foo', 0, None, 'bar', 7, 'baz', None]))	#=> [0, 'bar', 7, 'baz', None, 'foo']
+c = list(set([2, 5, 6, 556, 6, 6, 8, 9, 0, 123, 556]))	#=> [0, 2, 5, 6, 8, 9, 556, 123]
+d = list(set(["student","sam", "student","george", "teacher","matz"]))
+
+
+
+
+iterate over list forward and in reverse ==>
+list = [1, 2, 3, 4, 5]
+for x in list : print(x)
+words = "first second third fourth fifth sixth".split(" ")
+for w in reversed(words): print(w)
+
+
+
+apply a function on each element in the list (map, lambda)==>
+arr = [1, 2, 3, 4, 5]
+map(lambda a: 2*a, arr)	#return modified array
+
+
+ 
+select element by list comprehension ==>
+arr = [1, 2, 3, 4, 5, 6]
+[x for x in arr if x % 2 == 0] #[2,4,6]
+
+
+
+selecte element in list matching regex pattern ==>
+import re
+L = ["one", "two", "three", "four", "five", "six"]
+[x for x in L if re.match("^[ft]",x)] #starting with 'f' or ' t'
+
+
+
+intersection of common and shared elements in two  lists ==>
+a = [ 1, 1, 3, 5 ]
+b = [ 1, 2, 3 ]
+set(a).intersection(b)      #{1,3}
+set([e for e in a if e in b]) #{1,3}
+
+
+
+join | convert list  into a string ==>
+#separator.join(list)
+a = ["join", "those", "array", "elements", "with spaces"]
+" ".join(a)	
+
+
+
+concatenate |  join | combine two lists ==>
+ [ 1, 2, 3 ] + [ 4, 5 ] #join two lists
+
+
+
+get the index of given list value ==>
+list = [ "a", "b", "c" ]
+list.index("b")
+
+
+
+compare two lists for equality ==>
+a = [ "a", "a", "c" ]
+b = [ "a", "b", "c" ]
+set(a) == set(b)
+
+
+
+iterate over indices  and elements of a list ==>
+a = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(a)):
+  print(i, a[i])
+for i, e in enumerate(a):
+  print(i, e)
+
+
+
+Add an item to the end of the list ==>
+list = [1, 2, 3, 4, 5]
+a = [1, 2, 3, 4, 5]
+list.append(6)
+a[len(a):] = [6]
+
+
+
+add (extend) a list to another list ==>
+a = [1,2,3]
+list = [7,8,9]
+L = [4,5,6]
+list.extend(L) 
+a[len(a):] = L
+
+
+
+remove item from a list by its value ==>
+list = [1, 2, 'item', 3, 4, 5]
+list.remove('item')
+
+
+
+remove item from a list by index ==>
+list = [1, 2, 'item', 3, 4, 5]
+index = 2
+list.remove(list[index])
+
+
+
+get and remove last item in a list ==>
+list = [1,2,3,4,5]
+a = list.pop() #needs () even if no argument given
+
+
+
+get and remove item at given position in the list ==>
+list = [1,2,3,4,5]
+index = 3
+a = list.pop(index)
+
+
+
+get the index of a given value in a list ==>
+list = [1, 2, 'item', 3, 4, 5]
+list.index('item')
+
+
+
+count the number of times an item appears in a list ==>
+list = [1, 2, 'x', 3, 4, 'x' , 5, 'x', 6]
+list.count('x')
+list.count(list[5]) #value at index 5 is 'x'
+
+
+
+sort items in a list ==>
+#list.sort(cmp=None, key=None, reverse=False)
+list = ['A' ,'b' ,'C' , 'd', 'E', 'f']
+list.sort(reverse=True)
+print(list)
+a = [66.25, 333, 333, 1, 1234.5]
+a.sort()
+print(a)
+L = ['A' ,'b' ,'C' , 'd', 'E', 'f']
+L.sort(key= str.upper)
+print(L)
+
+
+
+use a list as a queue, to popleft “first-in, first-out” ==>
+from collections import deque
+queue = deque(["Eric", "John", "Michael"])
+print(queue)
+queue.append("Terry")           # Terry arrives
+queue.append("Graham")          # Graham arrives
+queue.popleft()                 # The first to arrive now leaves
+queue.popleft()                 # The second to arrive now leaves
+print(queue)      # Remaining queue in order of arrival
+
+
+
+filter items from list by  function ==>
+def f(x): 
+  return x % 3 == 0 or x % 5 == 0 #divisable by 3 and 5
+
+L = filter(f, range(2, 25))
+for i in L:
+  print(i)
+
+
+
+use map to call function for each of list items ==>
+def cube(x): 
+  return x*x*x
+
+L = map(cube, range(1, 11))
+print(list(L))
+
+
+
+map more than one sequence lists ==>
+seq = range(8)
+def add(x, y): 
+  return x+y
+
+print(list(map(add, seq, seq)))

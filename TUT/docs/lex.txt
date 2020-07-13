@@ -1,0 +1,20 @@
+﻿continue statement on multiple lines ==>
+#use \
+print "This is \
+a test"
+
+#use triple quotes
+print """This is a test
+This is another test
+"""
+#when using () or [] or {} you can cross lines without problems
+print [
+12,
+13,
+14
+]
+
+
+
+put more than one statement on a single line ==>
+print "Hello"; print "New"; print "World"

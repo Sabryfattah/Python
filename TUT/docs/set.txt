@@ -1,0 +1,47 @@
+create an empty set ==>
+st = set()
+print st
+d = {} #creates an empty dictionary
+print d
+
+
+
+remove duplicates from a sequence (list) ==>
+basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+fruit = set(basket) # create a set without duplicates
+print fruit
+
+
+
+test membership in sequence faster ==>
+fruit = set(['orange', 'pear', 'apple', 'banana'])
+list = ['orange', 'pear', 'apple', 'banana']
+print 'orange' in fruit  # fast membership testing
+print 'crabgrass' in fruit
+print 'orange' in list
+print 'crabgrass' in list
+
+
+
+test union, intersection  and difference in two lists ==>
+a = set('abracadabra')
+b = set('alacazam')
+c = set([1,2,3,4,5,6])
+d = set([5,2,4,7,8,3,9])
+print a
+print a - b      # letters in a but not in b
+print a | b      # letters in either a or b
+print a & b      # letters in both a and b
+print a ^ b      # letters in a or b but not both
+print c
+print c - d      # numbers in c but not in d
+print c | d      # numbers in either c or d
+print c & d      # numbers in both c and d
+print c ^ d      # numbers in c or d but not both
+
+
+
+use set comprehension to test for set differences ==>
+a = {x for x in 'abracadabra' if x not in 'abc'}
+print a
+

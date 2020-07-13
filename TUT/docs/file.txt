@@ -1,0 +1,135 @@
+absolute path of a filename  ==>
+import os
+os.path.abspath("c:/scripts/tut/file.txt")
+
+
+last time file was accessed ==>
+from  datetime import *
+at = os.path.getatime("c:/py/tut/data/file.txt") # 1517755649.4889567
+datetime.fromtimestamp(at).strftime('%Y-%m-%d %H:%M:%S') #'2018-02-04 14:47:29'
+
+
+basename  of file from full path ==>
+from os.path import basename
+basename("c:/py/tut/data/file.txt") 	#=> file.txt 
+basename("c:/py/tut/data/file.txt")[-3:]  	#txt
+basename("c:/py/tut/data/file.txt")[:-4]  	#file
+
+
+ full file path without file extension ==>
+import os
+os.path.splitext("c:/py/tut/data/file.txt") #('c:/py/tut/data/file', '.txt')
+
+
+full file path without filename  ==>
+import os
+os.path.split("c:/py/tut/data/file.txt") #('c:/py/tut/data', 'file.txt')
+
+
+time when the file was created ==>
+from datetime import *
+ct = os.path.getctime("c:/py/tut/data/file.txt") #creation time
+print(datetime.fromtimestamp(ct).strftime('%Y-%m-%d %H:%M:%S'))
+
+
+create an empty file ==>
+import os
+open(file, 'w').close()
+
+
+delete named file ==>
+import os
+file = "file_name.txt"
+os.remove(file)
+
+
+is  name for file or directory ==>
+file = "c:\pw.txt"
+dir = "c:\py"
+print os.path.isfile(file)
+print os.path.isdir(dir)
+
+
+get dir path without filename ==>
+os.path.dirname("c:/scripts/tut/file.txt") #'c:/scripts/tut'
+
+
+check if file actually exists ==>
+file = "c:/scripts/tut/file.txt"
+os.path.exists(file)
+
+
+join parts into full path ==>
+os.path.join("c:\script", "tut", "data")
+
+
+split path to file and path ==>
+os.path.split("c:/scripts/tut/file.txt")    #=> ('c:/scripts/tut', 'file.txt')
+
+
+get extension of filename from its path ==>
+os.path.splitext("c:/scripts/tut/file.txt")[1]
+
+
+get file stats, including size, atime, mtime, ctime..etc ==>
+(mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime)=os.stat("c:/py/tut/data/file.txt")
+print(size, atime, mtime, ctime, mode)
+
+
+open file to write to  it ==>
+# open file to write to it then close it
+f = open("c:/new.txt",  "w") 
+f.write("Hello World")
+f.close()
+
+
+ open file to read from it ==>
+open("c:/new.txt", "r").read()
+
+
+read file  contents  into string ==>
+f = open("c:/test.py",  "r")
+string = f.read()
+
+
+append  lines in sequence to file  ==>
+file = open("c:/new.txt", "a")
+seq ="""
+\nThis is line 1
+\nThis is line 2
+\nThis is line 3
+"""
+file.writelines(seq)
+file.close()
+
+
+rename a file ==>
+import glob
+os.rename("c:/new.txt", "c:/new.bak")
+
+
+get the file size ==>
+os.path.getsize("c:/scripts/tut/file.txt")
+
+
+truncates file after number of bytes ==>
+import os
+with open("c:/test.txt", "r+") as f:
+  f.write("Hello World\nHello World\nHello World")
+  print os.path.getsize("c:/test.txt")
+  f.truncate(20)
+os.path.getsize("c:/test.txt")
+open("c:/test.txt", "r").read()
+
+
+check if  file is empty (zero size) ==>
+os.path.getsize("c:/test.txt")==0
+os.stat("c:/test.txt").st_size==0
+
+
+use '  with open as '  to close file after opening  ==>
+with open("c:/test.txt") as f:
+    for line in f:
+        print line
+for line in open("c:/test.txt"):
+    print line  #file still open

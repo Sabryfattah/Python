@@ -1,0 +1,72 @@
+split string into three partitions: pre , pattern ,  post ==>
+"hello world".partition(" ") #=> ('hello', ' ', 'world') returns a tuple
+"This is an example".partition("an") #=> ('This is ', 'an', ' example') split by "an"
+"hello\nworld".partition("\n")  #=> ('hello', '\n', 'world') split by linefeeds
+
+
+
+reverse characters of string ==>
+"stressed"[::-1]   #=> "desserts"
+
+
+
+get the index (position) of substring in a string ==>
+"hello".index('e')
+"hello".index('l')
+
+
+
+find all  substrings matching a pattern  using Regex ==>
+#findall gets all occurences of a Regex matching pattern.
+import re
+string = "too may cooks tried to spoil the broth"
+re.findall(r"\bt[\w]*", string) #words starting with 't' till end   #=> ['too', 'tried', 'to', 'the']
+
+
+
+slice a string between two positions ==>
+#slice string as a list of characters between given positions.
+a = "hello there"
+a[1:10]
+
+
+
+slice string  with start , end , step arguments ==>
+#create a slice object then use it to  slice any string
+s = slice(1,10,1)
+a[s]
+
+
+
+check if a string starts with a specific prefix or substring ==>
+"congratulation".startswith("con")
+
+
+
+check if a string contains a substring starting from a position ==>
+"congratulation".startswith("grat",3,10)
+"congratulation".startswith("tion",-4)
+
+
+
+remove both leading and training whitespace and linefeeds ==>
+str.strip("    hello    ")
+str.strip("\tgoodbye\r\n")
+
+
+
+swap uppercase by lowercase characters in a string ==>
+str.swapcase("Hello")         #=> "hELLO"
+str.swapcase("cYbEr_PuNk11")  #=> "CyBeR_pUnK11"
+
+
+
+substitute all lowercase with uppercase ==>
+str.upper("hEllO") #=> "HELLO"
+
+
+
+center string in width padded ==>
+""" center(s, width[, fillchar]) """
+s = " hello world "
+str.center(s,40,"=")

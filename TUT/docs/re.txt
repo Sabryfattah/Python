@@ -1,0 +1,33 @@
+match any one single decimal number ==>
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\d', string)
+#=> ['2', '1', '3', '7', '8']
+
+
+
+match one or more decimal numbers ==>
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\d+', string)
+#=> ['213', '7', '8']
+
+
+
+match alphanumeric one or more characters ==>
+string = "213 Lincon street, Floor 7, Flat 8"
+print re.findall('\D+', string)
+#=> [' Lincon street, Floor ', ', Flat ']
+print re.findall('\w+', string)
+#=> ['213', 'Lincon', 'street', 'Floor', '7', 'Flat', '8']
+print re.findall('.+', string) # same as (.*)
+#=> ['213 Lincon street, Floor 7, Flat 8']
+
+
+
+compile matching pattern and use methods ==>
+import re
+p = re.compile('ab*')
+p.match() 	matches the beginning of the string.
+search() 	looks for any location where p matches.
+findall() 	Find all substrings where p matches, and returns them as a list.
+finditer() 	Find all substrings where p matches, and returns them as an iterator.
+

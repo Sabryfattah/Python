@@ -1,0 +1,102 @@
+count size of characters in a string ==>
+a = "hello world"
+len(a)
+
+
+
+count number of times a substring is repeated in a string ==>
+a.count("lo")      #=> count 'lo'from start to end
+a.count("l")       #=> count 'l' from start to end
+a.count("l", 5)    #=> count 'l' from position 5 to end
+a.count("o", 3, 7) #=> count 'o' from position 3 to position 7
+
+
+
+count all characters in a string including linefeeds ==>
+ a.count("") 	 #=> all characters including \s\n\r\f..etc.
+
+
+
+count number of lines and paragraphs in a string or file ==>
+"hello world\r\n".count('\n') #count number of lines.
+"hello world\n\n".count('\n\n') #count number of paragraphs.
+
+
+
+convert every character in the string to lowercase ==>
+a = "hElLO"
+str.lower(a)
+
+
+
+check if string ends in a substring ==>
+string = "concatenation"
+string.endswith("tion")
+string.endswith("tion", 1, 6)#starts positions 1 and ends 6
+
+
+
+compare two strings ==>
+144 is 12*12 #True
+144 == 12*12 #True
+"Hello World" == "Hello World" #True
+"Hello World" == "H"+"ello"+" "+"W"+"orld" #True, value equal
+"Hello World" is "H"+"ello"+" "+"W"+"orld" #False, not the same
+
+
+
+replace substitute  all occurences of pattern in a string  ==>
+#use Regex and sub function :
+#re.sub(pattern, replacement, string)
+import re
+a = "hello world"
+a.replace('world', "Everyone")
+re.sub('[aeiou]', '.', a) #replace all vowels
+re.sub('[.]', '', a)      #replace all fullstops
+re.sub('[^aeiou]', '*',a) #replace anything not vowel
+re.sub('[eo]', 'e',a)     #replace all e and o in string
+
+
+
+check if string includes a substring ==>
+"lo" in "hello"   #=> true
+"ol" in "hello"   #=> false
+"h" in "hello"    #=> true
+
+
+
+split string into a list by a separator ==>
+"This is a string\nThis is another line".split() #whitespace
+"This is a string\nThis is another line".split(" ") #space
+"This is a string\nThis is another line".split("\n")#newline
+
+
+
+format string left justified and padded ==>
+"hello".ljust(4)  #less than string length, no padding      
+"hello".ljust(20) #padded with spaces
+"hello".ljust(20, '*')  #padded with **
+
+
+
+remove leading whitespace before string ==>
+a = "  hello  "
+b = "\t\t\nhello"
+str.lstrip(a)	
+str.lstrip(b)	#\n\r\f\t are also whitepaces
+
+
+
+find a matching substring in string by Regex ==>
+import re
+text = 'hello world'
+re.search('h(.+?)\s', text).group(0) #=> hello ## h followed by any characters up to first space
+re.search('(.)\s.*', text).group(0) #=> o world # one character followed by space then rest of characters.
+re.search('[aeiou]', text).group(0) #=> e   # first vowel in string (search gets only the first occurence)
+re.search('\w.+', text).group(0) #=> hello world    # all characters to end of line
+
+
+
+get ordinal code number of a character  ==>
+# the ordinal number code which represents the character in character table.
+ord("a")

@@ -1,0 +1,257 @@
+read xml file into a tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+print(tree)
+
+
+use xpath to get text of tag in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+Service_elements = tree.xpath(".//Service")
+print([element.text for element in Service_elements])
+
+
+use xpath to get text of sibling tag from another's text ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+elements = tree.xpath(".//Service[text() ='AOL']/following-sibling::Password")
+print([element.text for element in elements])
+
+
+get all tags in elements tree using xpath with lxml ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+elems = tree.xpath(".//*")
+print(set([e.tag for e in elems]))
+
+
+get text of child element by text of parent in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+x = tree.xpath(".//site[Service = '{}']/Password".format('Notah'))
+e = x[0].text
+print(e)
+
+
+use findall to get text of all named elements in  lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/DATA/Access.xml")
+res = tree.findall(".//Email")
+for i in res:
+  print("\n".join(i.itertext()))
+
+
+get authors and titles of books from xml file ==> 
+from lxml import etree
+for _, element in etree.iterparse("c:/py/tut/data/book.xml", tag='book'):
+  print('%s -- %s' % (element.findtext('author'), element[1].text))
+  element.clear()
+
+
+get all attributes of a tag in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/tut/data/book.xml")
+attributes = tree.xpath(".//book/@id")
+print([i for i in attributes])
+
+
+get text of child of parent element in all lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/tut/data/book.xml")
+authors = tree.xpath(".//book/author")
+print([i.text for i in authors])		
+
+
+get all records of specific element by attribute in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/tut/data/book.xml")
+bk = tree.xpath(".//book[@id = 'bk108']")
+print([i.text for i in bk[0]])
+
+
+get all records of specific element by attribute in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/tut/data/book.xml")
+bk = tree.xpath(".//child::book")
+print([i.text for i in bk[0]])
+
+
+select records in xml by attribute matching in lxml tree ==>
+from lxml import etree
+tree = etree.parse("c:/py/tut/data/book.xml")
+bk = tree.xpath("book[price>35.00]/title")
+print("\n".join([i.text for i in bk]))
+
+
+use ElementTree to search for tags or text ==>
+import xml.etree.ElementTree as ET
+tree = ET.parse("c:/py/tut/data/book.xml")
+root = tree.getroot()
+print(root.tag)
+for child in root:
+  print(child.tag, child.attrib)
+for price in root.iter('price'):
+  print(price.text)
+for title in root.iter('title'):
+  print(title.text)
+
+
+use findall with ElementTree to get tag text ==>
+import xml.etree.ElementTree as ET
+tree = ET.parse("c:/py/tut/data/book.xml")
+root = tree.getroot()
+for book in root.findall('book'):
+  title = book.find('title').text
+  author = book.find('author').text
+  print(title," : ", author)
+authors = root.findall(".//book/author")
+print([e.text for e in authors])
+
+
+read xml from string ==>
+import xml.etree.ElementTree as ET
+text = open("c:/py/tut/data/book.xml", 'r').read()
+#or text of downloaded html page
+root = ET.fromstring(text)
+for genre in root.iter('genre'):
+  print(genre.text)
+
+
+build xml by ElementTree ==>
+import xml.etree.ElementTree as ET
+book = ET.Element('Book')
+bk1 = ET.SubElement(book, 'first book')
+bk2 = ET.SubElement(book, 'second book')
+author = ET.SubElement(bk2, 'author')
+ET.dump(book)
+
+
+build root of tree ==>
+root = etree.Element("root")
+
+
+add a child to tree root ==>
+root.append(etree.Element("child1"))
+
+
+add children using SubElement(parent,"Tag") ==>
+child2 = etree.SubElement(root, "child2")
+child3 = etree.SubElement(root, "child3")
+
+
+get tree as a string from root, with linefeeds using pretty_print ==>
+tree = etree.tostring(root, pretty_print=True)
+
+
+get number of children in a root or tag ==>
+print(len(root))
+
+
+print lxml.etree tree object ==>
+print(tree.decode())
+
+
+print all children tags of root ==>
+children = list(root)
+for child in root:
+  print(child.tag)
+
+
+insert new element at position 0 with tag child0 ==>
+root.insert(0, etree.Element("child0"))
+#start position and end position
+start = root[:1]
+end   = root[-1:]
+print(tree.decode())
+
+
+remove element from tree and move last element to position 0 ==>
+root[0] = root[-1]
+for child in root:
+  print(child.tag)
+
+
+copy element to position of another and remove element position ==>
+root[0] = root[-1]
+for child in root:
+  print(child.tag)
+
+
+get parent node or previous or next one from root ==>
+tree = etree.parse('c:/py/EXML/t.xml')
+root = tree.getroot()
+print(root[0].getparent())
+print(root[2].getprevious())
+print(root[1].getnext())
+
+
+Add attribute to elements and retrive its text ==>
+root = etree.Element("root", interesting="totally")
+etree.tostring(root)
+print(root.get("interesting"))
+
+
+print the whole xml tree with tags ==>
+print("\n".join([e.tag+" : "+e.text for e in tree.iter()]))
+
+
+set and get text of attributes of element as dict keys ==>
+root = etree.Element("root", interesting="totally")
+root.set("attrib", "value")
+print(etree.tostring(root).decode())
+print(sorted(root.keys()))
+print(root.get("attrib"))
+#get attributes of root as dictionary
+attributes = root.attrib
+print(attributes)
+
+
+add text to element ==>
+html = etree.Element("html") 		#build element
+body = etree.SubElement(html, "body") 	#build subelement
+#subelement(element, "subelement")
+body.text = "TEXT"			#add text to subelement
+print(etree.tostring(html))		#print tree
+
+
+add text after element's text and tag (tail) ==>
+br = etree.SubElement(body, "br") 	#add <br> tag
+br.tail = "TAIL"			#add text for <br> tail
+print(etree.tostring(html))
+
+
+find all text values in tree ==>
+print(html.xpath("//text()"))
+
+
+serialise tree using tostring function ==>
+#adding xml declaration
+tree = etree.tostring(root, xml_declaration=True)
+print(tree.decode())
+print(etree.tostring(root, pretty_print=True))
+
+
+build tree elements ==>
+#build root node named csv_data
+root = etree.Element("csv_data")
+#build am element to this roor
+blog = etree.Element('blog')
+#attach it to root
+root.append(blog)
+#add subElements
+name = etree.SubElement(blog, 'Name')
+phone = etree.SubElement(blog, 'Phone')
+email = etree.SubElement(blog, 'Email')
+#add text to subElements
+name.text = "Ahmad"
+phone.text = "0123456678"
+email.text = "email@hotmail.co.uk"
+#add entity
+root.append(etree.Entity("#234"))
+#add comment
+root.append(etree.Comment("some comment"))
+for element in root.iter():
+  if isinstance(element.tag, str):  # or 'str' in Python 3
+    print("%s - %s" % (element.tag, element.text))
+  else:
+    print("SPECIAL: %s - %s" % (element, element.text))

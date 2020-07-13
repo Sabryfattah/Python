@@ -1,0 +1,47 @@
+Compare two objects ==>
+a = "man"
+b = "can"
+(a>b)-(a<b)
+#-1 if(a < b) a is smaller
+# 0 if(a == b) a is equal to b
+# 1 if(a > b), b  is bigger or higher in order than b
+
+
+
+all elements of a list satisfy a condition  ==>
+list = [2,3,4,5]
+all(list) #True , i.e. no element is None or empty
+if all(type(i) is int for i in list): 
+    print("List of integers only")
+all(i >= 1 for i in list) #all elements are greater than 1
+
+
+
+any element in a list satisfy a condition ==>
+list = [2,3,4,5]
+if any(list) < 3:
+    print("some elements are less than 3")
+
+
+
+get quotient and remainder  modulo  of division  ( divmod ) ==>
+x, y = divmod(120, 7)
+print(x, y) #17,1 
+
+
+
+use enumerate to get index (counter) and elements of list ==>
+seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+print(list(enumerate(seasons)))
+print(list(enumerate(seasons, start=1)))
+L = [t for t in list(enumerate(seasons))]
+for i,e in L:
+  print(i,e)
+
+
+
+list months and days number ranges in two digits  ==>
+months =  ["%.2d" % i for i in range(1,13)]
+days =   ["%.2d" % i for i in range(1,32)]
+print(days)
+print(months)

@@ -1,0 +1,46 @@
+apply lambda function to items of list using map ==>
+a = [1, 2, 3, 4]
+print map(lambda n:n ** 2, a)
+
+
+
+create an object of lambda function ==>
+block = (lambda x: x**2)
+print map(block, [1, 2, 3])
+
+
+
+create nested functions (similar to closures) ==>
+def generate_power_func(n):
+    print "n = %s" % n
+    def nth_power(x):
+        return "%d to the power of %d is %d " % (n,x,x**n)
+    return nth_power(n)
+print generate_power_func(5) 
+#variable n is used inside the nested function as variable x
+
+
+
+return more than one variable from a method ==>
+def method(n):
+  x = n**2
+  y = n**3
+  z = n*n
+  return x, y, z
+print method(12)
+
+
+
+use 'yield' to define a generator function ==>
+global isPrime
+def isPrime(Number):
+  return 2 in [Number,2**Number%Number]
+
+def get_primes(number):
+  while number < 100:
+    if isPrime(number):
+      yield number
+    number += 1
+
+for i in get_primes(1):
+ print i
