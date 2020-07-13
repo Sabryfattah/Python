@@ -1,3 +1,6 @@
+"""This script uses tkinter to build a GUI with entry field to search for a pattern in second column from two columns csv file. 
+Thus a dictionary can be searched by description column rather than Name column."""
+
 import csv
 import tkinter as tk
 
