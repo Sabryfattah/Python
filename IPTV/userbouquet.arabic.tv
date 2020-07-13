@@ -1,0 +1,89 @@
+#NAME IPTV Streams
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a//cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_quran/hls1/saudi_quran.m3u8?checkedby:iptvcat.com:  ALQURAN KSA SD 
+#DESCRIPTION   ALQURAN KSA SD 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a//m.live.net.sa:1935/live/quran/playlist.m3u8?checkedby:iptvcat.com:  Al Quran KSA HD 
+#DESCRIPTION   Al Quran KSA HD 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_sunnah/hls1/saudi_sunnah.m3u8?checkedby:iptvcat.com:  Al Sunnah SD 
+#DESCRIPTION   Al Sunnah SD 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a//ayat.live.net.sa:1935/live/ayat/playlist.m3u8?checkedby:iptvcat.com:  Ayat 
+#DESCRIPTION   Ayat 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///59355e6c6462b.streamlock.net/quran/ngrp:ahul_all/chunklist.m3u8?checkedby:iptvcat.com:  Ahl ElQuran 
+#DESCRIPTION   Ahl ElQuran 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///iqraac.cdn.mangomolo.com/iqraa/smil:iqraar1.stream.smil/playlist.m3u8?checkedby:iptvcat.com:  Iqraa SD 
+#DESCRIPTION   Iqraa SD 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a//makkahtv.srfms.com:1935/makkahtv/livestream/playlist.m3u8?checkedby:iptvcat.com:  Makkah Channel 
+#DESCRIPTION   Makkah Channel 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/lbc_dabr/playlist.m3u8:  LBC HD 
+#DESCRIPTION   LBC HD 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/comedy_dabr/playlist.m3u8:  Rotana Comedy 
+#DESCRIPTION   Rotana Comedy 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/classical_dabr/playlist.m3u8:  Rotana Classic 
+#DESCRIPTION   Rotana Classic 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/drama_dabr/playlist.m3u8:  Rotana Drama 
+#DESCRIPTION   Rotana Drama 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/cinema_dabr/playlist.m3u8:  Rotana Cinema
+#DESCRIPTION   Rotana Cinema
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/kids_dabr/playlist.m3u8?checkedby:iptvcat.com:  Rotana Kids 
+#DESCRIPTION   Rotana Kids 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/aflam1_dabr/playlist.m3u8?checkedby:iptvcat.com:  Rotana Kids 
+#DESCRIPTION   Rotana Kids 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///rotana.hibridmedia.com/rotana/cinema_dabr/rotana/cinema_720p/chunks.m3u8?nimblesessionid=20717989:  Rotana Cinema
+#DESCRIPTION   Rotana Cinema
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod_1.m3u8:  MBC 1 
+#DESCRIPTION   MBC 1 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc2-prod.shahid.net/mbc2-prod_1.m3u8:  MBC 2 
+#DESCRIPTION   MBC 2 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbcmax-prod.shahid.net/mbcmax-prod_1.m3u8:  MBC MAX 
+#DESCRIPTION   MBC MAX 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbcaction-prod.shahid.net/mbcaction-prod_1.m3u8:  MBC Action 
+#DESCRIPTION   MBC Action 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc3-prod.shahid.net/mbc3-prod_1.m3u8:  MBC 3 
+#DESCRIPTION   MBC 3 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbcdramaksa-prod.shahid.net/mbcdramaksa-prod_1.m3u8:  MBC Drama 
+#DESCRIPTION   MBC Drama 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod_1.m3u8?checkedby:iptvcat.com:  MBC 1 
+#DESCRIPTION   MBC 1 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod.m3u8?checkedby:iptvcat.com:  MBC 1 
+#DESCRIPTION   MBC 1 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbcdramaksa-prod.shahid.net/mbcdramaksa-prod_1.m3u8?checkedby:iptvcat.com:  MBC Drama 
+#DESCRIPTION   MBC Drama 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-masr-prod.shahid.net/masr-prod.m3u8?checkedby:iptvcat.com:  MBC Masr 1 
+#DESCRIPTION   MBC Masr 1 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-masr2-prod.shahid.net/masr2-prod.m3u8?checkedby:iptvcat.com:  MBC Masr 2 
+#DESCRIPTION   MBC Masr 2 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc4-prod.shahid.net/mbc4-prod_1.m3u8?checkedby:iptvcat.com:  MBC 4 
+#DESCRIPTION   MBC 4 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-iraq-prod.shahid.net/iraq-prod_3.m3u8:  MBC Iraq 
+#DESCRIPTION   MBC Iraq 
+
+#SERVICE 4097:0:0:0:0:0:0:0:0:0:http%3a///shls-mbc5-prod.shahid.net/mbc5-prod_1.m3u8:  MBC 5 
+#DESCRIPTION   MBC 5 
+

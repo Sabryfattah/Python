@@ -1,0 +1,86 @@
+#EXTINF:- 1, ALQURAN KSA SD 
+http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_quran/hls1/saudi_quran.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Al Quran KSA HD 
+http://m.live.net.sa:1935/live/quran/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Al Sunnah SD 
+https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_sunnah/hls1/saudi_sunnah.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Ayat 
+http://ayat.live.net.sa:1935/live/ayat/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Ahl ElQuran 
+https://59355e6c6462b.streamlock.net/quran/ngrp:ahul_all/chunklist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Iqraa SD 
+https://iqraac.cdn.mangomolo.com/iqraa/smil:iqraar1.stream.smil/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Makkah Channel 
+http://makkahtv.srfms.com:1935/makkahtv/livestream/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, LBC HD 
+https://rotana.hibridmedia.com/rotana/lbc_dabr/playlist.m3u8
+
+#EXTINF:- 1, Rotana Comedy 
+https://rotana.hibridmedia.com/rotana/comedy_dabr/playlist.m3u8
+
+#EXTINF:- 1, Rotana Classic 
+https://rotana.hibridmedia.com/rotana/classical_dabr/playlist.m3u8
+
+#EXTINF:- 1, Rotana Drama 
+https://rotana.hibridmedia.com/rotana/drama_dabr/playlist.m3u8
+
+#EXTINF:- 1, Rotana Cinema
+https://rotana.hibridmedia.com/rotana/cinema_dabr/playlist.m3u8
+
+#EXTINF:- 1, Rotana Kids 
+https://rotana.hibridmedia.com/rotana/kids_dabr/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Rotana Kids 
+https://rotana.hibridmedia.com/rotana/aflam1_dabr/playlist.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, Rotana Cinema
+https://rotana.hibridmedia.com/rotana/cinema_dabr/rotana/cinema_720p/chunks.m3u8?nimblesessionid=20717989
+
+#EXTINF:- 1, MBC 1 
+https://shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod_1.m3u8
+
+#EXTINF:- 1, MBC 2 
+https://shls-mbc2-prod.shahid.net/mbc2-prod_1.m3u8
+
+#EXTINF:- 1, MBC MAX 
+https://shls-mbcmax-prod.shahid.net/mbcmax-prod_1.m3u8
+
+#EXTINF:- 1, MBC Action 
+https://shls-mbcaction-prod.shahid.net/mbcaction-prod_1.m3u8
+
+#EXTINF:- 1, MBC 3 
+https://shls-mbc3-prod.shahid.net/mbc3-prod_1.m3u8
+
+#EXTINF:- 1, MBC Drama 
+https://shls-mbcdramaksa-prod.shahid.net/mbcdramaksa-prod_1.m3u8
+
+#EXTINF:- 1, MBC 1 
+https://shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod_1.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC 1 
+https://shls-mbc1ksa-prod.shahid.net/mbc1ksa-prod.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC Drama 
+https://shls-mbcdramaksa-prod.shahid.net/mbcdramaksa-prod_1.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC Masr 1 
+https://shls-masr-prod.shahid.net/masr-prod.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC Masr 2 
+https://shls-masr2-prod.shahid.net/masr2-prod.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC 4 
+https://shls-mbc4-prod.shahid.net/mbc4-prod_1.m3u8?checkedby:iptvcat.com
+
+#EXTINF:- 1, MBC Iraq 
+https://shls-iraq-prod.shahid.net/iraq-prod_3.m3u8
+
+#EXTINF:- 1, MBC 5 
+https://shls-mbc5-prod.shahid.net/mbc5-prod_1.m3u8
