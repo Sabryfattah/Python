@@ -1,0 +1,23 @@
+
+#EXTINF:-1 RORANA AFLAM
+http://selevision9879-i.akamaihd.net/hls/live/219141/98793/1.m3u8
+#EXTINF:-1 RORANA CINEMA
+http://selevision9896-i.akamaihd.net/hls/live/219378/98961/2.m3u8
+#EXTINF:-1 ROTANA CLASSIC
+http://selevision9879-i.akamaihd.net/hls/live/219144/98796/1.m3u8
+#EXTINF:-1 ROTANA KHALIGIA
+http://selevision9879-i.akamaihd.net/hls/live/219139/98791/1.m3u8
+#EXTINF:-1 ROTANA DRAMA
+http://selevision9893-i.akamaihd.net/hls/live/219353/98936/1.m3u8
+#EXTINF:-1 ROTANA MUSIC
+http://selevision9889-i.akamaihd.net/hls/live/219309/98892/1.m3u8
+#EXTINF:-1 WANASA
+http://mbcwanasatv-live.hls.adaptive.level3.net/hls-live/mbc-wanasatv/_definst_/live/stream1.m3u8
+#EXTINF:-1 DRAMA HD
+http://selevision9876-i.akamaihd.net/hls/live/219115/98767/1.m3u8
+#EXTINF:-1 DRAMA HD
+http://www.elahmad.com/tv/m3u8/adtv.m3u8?id=abudhabi_drama
+#EXTINF:-1 AD SPORTS
+http://adtv.ercdn.net/adsport1/adsport1_480p.m3u8
+#EXTINF:-1 AD SPORTS
+http://www.elahmad.com/tv/m3u8/adtv.m3u8?id=abudhabi_sports1

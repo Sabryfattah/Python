@@ -1,0 +1,43 @@
+#EXTM3U
+#EXTINF:-1 CATV1
+http://192.226.228.32:8080/hls/catv/index.m3u8
+#EXTINF:-1 ALHURRA
+http://mbnhls-lh.akamaihd.net/i/MBN_1@118619/master.m3u8
+#EXTINF:-1 BBC Arabic
+http://bbcwshdlive01-lh.akamaihd.net/i/atv_1@61433/master.m3u8
+#EXTINF:-1 CGTN
+http://live.cgtn.com/1000a/prog_index.m3u8
+#EXTINF:-1 DW
+http://dwstream2-lh.akamaihd.net/i/dwstream2_live@124400/master.m3u8
+#EXTINF:-1 NRT ARABIC
+http://prxy-wza-02.iptv-playoutcenter.de/nrtarabic/nrtarabic.stream_1/playlist.m3u8
+#EXTINF:-1 RT ARABIC
+http://secure-streams.akamaized.net/rt-arab/index1600.m3u8
+#EXTINF:-1 RT ARABIC
+http://secure-streams.akamaized.net/rt-arab/index.m3u8
+#EXTINF:-1 TRT ARABIC
+http://trtcanlitv-lh.akamaihd.net/i/TRTARAPCA_1@181945/master.m3u8
+#EXTINF:-1 ALMANAR
+http://live.mediaforall.net:1935/liveorigin/livestream_480p/playlist.m3u8
+#EXTINF:-1 ALMAYDEN
+http://lmd.cdn.octivid.com/lmd/smil:switch.smil/chunklist_b850000_t64NTc2cA==.m3u8?v=1599780920
+#EXTINF:-1 ARABICA
+https://svs.itworkscdn.net/arabicatvlive/arabicatv/playlist.m3u8
+#EXTINF:-1 LBC
+http://selevision9891-i.akamaihd.net/hls/live/219336/98919/1.m3u8
+#EXTINF:-1 SAMA TV
+http://sama-tv.net:1935/live/samatv/playlist.m3u8
+#EXTINF:-1 taghier
+http://stream1.joinvisions.net:1935/taglive/taghier/media_b340674_w2040724908.m3u8
+#EXTINF:-1 JORDAN AMEN
+http://185.27.116.54:1935/live/amn/chunklist_w1521888123.m3u8
+#EXTINF:-1 Alghadeer
+http://149.255.37.212:1935/live/alghadeer/chunklist_w1787991045.m3u8
+#EXTINF:-1 alrashid
+http://streamer11.elementssys.com:8080/alrashid/alrashid_850kbps/index.m3u8
+#EXTINF:-1 SHARQIA NEWS
+http://ns8.indexforce.com:1935/home/mystream/playlist.m3u8
+#EXTINF:-1 Alsharqiyalive
+http://ns8.indexforce.com:1935/alsharqiyalive/mystream/playlist.m3u8
+#EXTINF:-1 MASDAR_TV
+http://streamer12.elementssys.com:8080/SAUDI-Channels/MASDAR_TV/index.m3u8
