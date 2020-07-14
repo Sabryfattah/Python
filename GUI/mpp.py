@@ -18,7 +18,7 @@ class VIRAD:
 
 	def win(self):
 		self.root = Tk()
-		self.root.geometry("900x300")
+		self.root.geometry("950x300")
 		self.root.title("Internet Radio")
 		self.parent= Frame(self.root, width=300, height=900)
 		listbox = Listbox(self.parent, width=35, bd=5, relief='sunken', font=('tahoma', 14))
@@ -30,7 +30,7 @@ class VIRAD:
 		self.vsb.grid(column=1, row=0, sticky='ns', in_=self.parent)
 		listbox.configure(yscrollcommand=self.vsb.set)
 		self.var = StringVar()
-		label = Label(self.parent, bg="yellow", wraplength= 500, bd=4, padx=2, width=50, height=10, textvariable= self.var)
+		label = Label(self.parent, bg="yellow", font="Tahoma, 14", wraplength= 500, bd=4, padx=2, width=50, height=10, textvariable= self.var)
 		label.grid(column=2, row=0)
 		listbox.bind("<<ListboxSelect>>", self.play)
 		btn = Button(self.parent, text="stop", command= self._stop).grid(column=0, row=4)
