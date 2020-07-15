@@ -7,8 +7,7 @@ import ntpath
 class Find:
 	def __init__(self, pat=None, dirc=None, var=None):
 		self.pat = pat
-		#self.dirc = "F:/Pass"
-		self.dirc = "D:\Personal\Confidential"
+		#self.dirc = ""
 		self.files = []
 		self.var = var
 
