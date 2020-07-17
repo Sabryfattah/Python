@@ -12,6 +12,7 @@ import re
 import tkinter as tk
 from tkinter import filedialog
 from collections import defaultdict
+import ntpath
 import yaml
 ##########################################################
 class GYML:
@@ -25,7 +26,7 @@ class GYML:
 	def get_doc(self):
 		self.doc = {}
 		self.file = filedialog.askopenfilename()
-		self.title.configure(text= self.file)
+		self.title.configure(text= ntpath.basename(self.file[:-5]))
 		with open('{}'.format(self.file), 'r') as f:
 			self.doc = yaml.safe_load(f)
 
@@ -41,7 +42,7 @@ class GYML:
 		self.entry1 = tk.Entry(self.root, border=8, relief='sunken', bg= 'yellow', font="tahoma, 18", textvariable= self.var)
 		self.title = tk.Label(self.root, text= self.file, width= 30, font="tahoma, 18", relief='raised', bg= 'yellow')
 		self.lb1 = tk.Listbox(self.root, width=70, height= 16, font='tahoma,20', selectmode="single", borderwidth=5, highlightthickness=5)
-		self.textfield = tk.Text(self.root, width= 40, height=12, font='tahoma, 20', border=5)
+		self.textfield = tk.Text(self.root, wrap= 'word', width= 40, height=12, font='tahoma, 20', border=5)
 		self.button1 = tk.Button(self.root, text= "OK", border=5, relief="raised", font="tahoma, 12", command= self.display)
 		self.button2 = tk.Button(self.root, text= "RUN", border=5, relief="raised", font="tahoma, 12", command= self.run)
 
@@ -58,7 +59,7 @@ class GYML:
 		self.textfield.delete(1.0,tk.END)
 		for item in content:
 			for k,v in item.items():
-				self.textfield.insert(tk.END,str(k)+" : "+str(v)+"\n")
+				self.textfield.insert(tk.END,"- "+str(k)+" : "+str(v)+"\n")
 				
 	def geometry(self):
 		self.entry1.place(x=10, y=40)
