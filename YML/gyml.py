@@ -42,9 +42,10 @@ class GYML:
 		self.entry1 = tk.Entry(self.root, border=8, relief='sunken', bg= 'yellow', font="tahoma, 18", textvariable= self.var)
 		self.title = tk.Label(self.root, text= self.file, width= 30, font="tahoma, 18", relief='raised', bg= 'yellow')
 		self.lb1 = tk.Listbox(self.root, width=70, height= 16, font='tahoma,20', selectmode="single", borderwidth=5, highlightthickness=5)
+		self.lb1.bind('<<ListboxSelect>>', self.run)
 		self.textfield = tk.Text(self.root, wrap= 'word', width= 40, height=12, font='tahoma, 20', border=5)
-		self.button1 = tk.Button(self.root, text= "OK", border=5, relief="raised", font="tahoma, 12", command= self.display)
-		self.button2 = tk.Button(self.root, text= "RUN", border=5, relief="raised", font="tahoma, 12", command= self.run)
+		self.button1 = tk.Button(self.root, text= "GO", border=5, relief="raised", font="tahoma, 12", command= self.display)
+		self.button2 = tk.Button(self.root, text= "SHOW", border=5, relief="raised", font="tahoma, 12", command= self.run)
 
 	def display(self):
 		self.lb1.delete(0, tk.END)
@@ -54,10 +55,13 @@ class GYML:
 			if re.search('.*'+pat+'.*$', key, re.I):
 				self.lb1.insert('end', key)
 
-	def run(self):
-		content = self.doc[self.lb1.get(self.lb1.curselection())]
+	def run(self, event):
+		w = event.widget
+		index = int(w.curselection()[0])
+		key = w.get(index)
+		#content = self.doc[self.lb1.get(self.lb1.curselection())]
 		self.textfield.delete(1.0,tk.END)
-		for item in content:
+		for item in self.doc[key]:
 			for k,v in item.items():
 				self.textfield.insert(tk.END,"- "+str(k)+" : "+str(v)+"\n")
 				
@@ -68,7 +72,7 @@ class GYML:
 		self.title.place(x=580, y=10)
 		self.lb1.place(x=10, y=80)
 		self.button1.place(x=285, y=44)
-		self.button2.place(x=325, y=44)
+		#self.button2.place(x=325, y=44)
 		self.textfield.place(x=850, y=80)
 	
 	def main(self):
