@@ -1,3 +1,6 @@
+"""Internet Radio Gui App
+Using mplayer and showing now playing title"""
+
 from tkinter import *
 import tkinter.ttk as ttk
 import threading
