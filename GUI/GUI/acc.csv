@@ -1,0 +1,34 @@
+Acc,Bank,Type,Holder,Balance
+176,Barclays,Current,SABRY,1475
+332,Barclays,Everyday Saver,SABRY,8426
+364,Barclays,Everyday Saver,SABRY,10021
+627,Barclays,Current Account,AZZA,1717
+524,Barclays,2y Bond,AZZA,65000
+320,HSBC,PREMIER CURRENT,Joint,1448
+339,HSBC,PREMIER SAVER,SABRY,7004
+9424,HSBC,Regular Saver,SABRY,2250
+9424,HSBC,Regular Saver,AZZA,2250
+9440,HSBC,CASH ISA,SABRY,20113
+79467,HSBC,CASH ISA,AZZA,3102
+110,HSBC,EGYPT CURRENT,SABRY,354
+17,HSBC,EGYPT GRB Savings,Joint,202
+8599,HSBC,Flex Saver,SABRY,0
+8580,HSBC,Flex SAVER,SABRY,99
+7065,Halifax,Instant Saver,Joint,380
+5565,Halifax,2Y Fixed Saver,AZZA,14500
+5702,Leeds,1 y Fixed Bond,Joint,43221
+502,Leeds,2y Fixed Bond,AZZA,53193
+5302,Leeds,3Y Fixed ISA,SABRY,61792
+6102,Leeds,3Y Fixed ISA,AZZA,10000
+42645460,Lloyds,Club Current,Joint,2939
+68016268,Lloyds,Club Current,SABRY,5119
+82819660,Lloyds,Club Saver Monthly,SABRY,3600
+83433668,Lloyds,Club Saver Annual,SABRY,9000
+71496268,Lloyds,Standard Saver,SABRY,539
+68015868,Lloyds,Club Current,AZZA,4405
+82829460,Lloyds,Club Saver Monthly,AZZA,3600
+83434068,Lloyds,Club Saver Annual,AZZA,6500
+71498168,Lloyds,Standard Saver,AZZA,7
+8968,Lloyds,Online Saver,AZZA,0
+9543,Newcastle BS,2Y Bond,AZZA,51807
+9509,Royal Mail,Stocks,SABRY,1220

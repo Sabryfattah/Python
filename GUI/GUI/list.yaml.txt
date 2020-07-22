@@ -1,0 +1,473 @@
+Create an empty list to be filled later :
+- Syntax : assign empty list to variable, var = []
+
+Convert any object to list :
+- Syntax : list(object)
+- example : |
+
+list("abcd")
+list(range(5))
+list({'one' : 1, 'two' : 2}) #gives a list of keys only
+
+Add element to end of a list :
+- Syntax :list.append(element)
+- EX: mylist.append(1)
+
+Create a list from string by split function :
+- Syntax : mystring.split(separator)
+- EX: | mystring = "Ann Carol Jean"
+mylist = mystring.split(" ")
+
+Create a list from multiline string or document by split function :
+- EX : | 
+
+mystring = """Line one
+Line two
+Line three"""
+mylist = mystring.split("\n")
+
+Convert  a range to list :
+- Syntax : mylist = list(range(limit)
+- The list starts from 0 and ends before the limit which is never included. 
+- EX : list(range(10) => [0,1,2,3,4,5,6,7,8,9]
+
+Convert a range to list skipping some  items :
+- Syntax : range(start,end,step)
+- create a range of numbers skipping each step from start to item before last..
+- EX : list(range(0,40,4)) #=> [0, 4, 8, 12, 16, 20, 24, 28, 32, 36]
+
+Get element from a list by its index :
+- Syntax :  list[index]
+- EX : | mylist = [1,2,3,4,5]
+mylist[3] #=> 4
+
+Slice a list by start and end index :
+- Syntax :  list[start_index : end_index]
+- EX : |
+mylist = list(range(40))
+mylist[14:20] #=> [14, 15, 16, 17, 18, 19]
+
+Get last element in a list :
+mylist = [1,2,3,4,5,6]
+mylist[-1]  #=> 6
+
+Slice a list from index to end :
+mylist = [1,2,3,4,5,6]
+mylist[4:] #=> [5, 6]
+
+Reverse elements in a list :
+mylist = [1,2,3,4,5]
+mylist[::-1] #=> [5, 4, 3, 2, 1]
+
+Slice a list by Slice function :
+- Syntax : list[slice[start,end,step]
+- EX : |
+mylist = [1,2,3,4,5,6,7,8,9]
+mylist[slice(2,-1,2)] #=> [3, 5, 7]
+
+Get number of elements in a list :
+- Syntax : len(list)
+- EX : len([1,2,3,4,5,6,7,8,9]) #=> 9
+
+Check if list is empty :
+EX : |
+mylist  = [1,2,3,4,5,6,7,8,9]
+if mylist : print("mylist is not empty")
+mylist == [] 
+if not mylist: print("list is empty")
+
+
+List : check if element exists ==>
+list = [1,2,3,4,5,6,7,8,9]
+print 10 in list
+
+
+List : add element to end  ==>
+# <  list.append(element) >
+
+
+List : insert element at a particular position ==>
+#  list.insert(index, object)
+list = [1,2,3,4,5,6,7,8,9]
+list.insert(3,10)
+print list
+
+
+List : remove and return element ==>
+# < list.pop() >
+list = [1,2,3,4,5,6,7,8,9]
+print list.pop()
+print list
+
+
+List : remove and get  element by index ==>
+#<  list.pop(index) >
+list = [1,2,3,4,5,6,7,8,9]
+print list.pop(3)
+print list
+
+
+List : remove first occurence of matching element ==>
+# list.remove(element) >
+# < del(list[index]) >
+list = [1,2,3,4,5,6,7,8,9]
+print list.remove(6)
+del(list[3])
+print list
+
+
+List : remove duplicates ==>
+# < list(set(list)) >
+L = [7,1,2,6, 3,2,4,5,2,6,7,8,4,9,3]
+print list(set(L))
+
+
+List :  iterate over elements  ==> 
+#< for 'element' in list: 'function' element >
+list = [1,2,3,4,5,6,7,8,9]
+for x in list : print x**x
+
+
+List :  apply function on each element  with map(lambda) ==>
+# < map(lambda v: function(v), list) >
+list = [1,2,3,4,5,6,7,8,9]
+print map(lambda x:  x**x, list)
+
+
+List : iterate over elements with list comprehension ==>
+# < [function(v) for v in list] >
+list = [1,2,3,4,5,6,7,8,9]
+print[ x**x for x in list]
+
+
+List : filter elements by ' if ' in  list comprehension ==>
+#  <  [v for v in list if v == condition] >
+list = [1,2,3,4,5,6,7,8,9]
+print [x for x in list if x % 2 == 0]
+
+
+List : select elements by regex pattern ==>
+# <  import re; [v for v in list if re.search('pattern', v)] >
+import re
+list = ["Ann", "Carol", "Jean", "Anrew", "Janette", "Malcolm"]
+print [x for x in list if re.search("^A", x)]
+
+
+2 Lists : get shared elements without duplicates ==>
+#< list(set(list1).intersection(list2)) >
+list1 = [1,3,6,7,8,9,3,1]
+list2 = [2,3,4,5,6,7,8,9]
+print list(set(list1).intersection(list2))
+
+
+2 Lists : get shared elements with duplicates ==> 
+# < [element for element in list1  if element in list2] >
+list1 = [1,3,6,7,8,9,3,1]
+list2 = [2,3,4,5,6,7,8,9]
+print [element for element in list1  if element in list2]
+
+
+List : join  elements into a string ==>
+#<  "separator".join(list) >
+list = [2,3,4,5,6,7,8,9]
+print "".join([str(x) for x in list]) 	#must be string to be joined into string
+
+
+2 Lists :  concatenate (join) two lists with '+'  or  'extend' ==>
+#< list1 + list2 >
+list1 = [1,3,6,7,8,9,3,1]
+list2 = [2,3,4,5,6,7,8,9]
+print list1+list2
+list1.extend(list2)
+print list1
+
+
+List : get index of element by  its value ==>
+# <  list.index(value) >
+list = [2,3,4,5,6,7,8,9]
+print list.index(6)
+
+
+2 Lists :  compare for equality ==>
+#<  set(list1) == set(list2) >
+list1 = [1,3,6,7,8,9,3,1]
+list2 = [2,3,4,5,6,7,8,9]
+print set(list1) == set(list2)
+
+
+Nested List : search for element ==>
+#< element in [sub for sublist in list for sub in sublist]>
+list = [['ant','cat','bear'],['insect','animal','mammal']]
+print('insect' in [item for sublist in list for item in sublist])
+Flatten = [e for sublist  in list for e in sublist] #flatten nested list
+print 'insect' in Flatten
+L = [[ "colors", "red", "blue", "green" ],[ "letters", "a", "b", "c" ],["foo", "bar"]]
+print(any("color" in sublist for sublist in L)) #colors not color
+
+
+List : clear all elements: ==>
+a = [ "a", "b", "c", "d", "e" ]
+a = []
+
+
+3 Lists : merge sequenctially elements from each  into list of tuples  ==>
+# transpose : replace rows by columns in two dimensional array
+#< zip(list1,list2,list3) >
+a = [ 4, 5, 6 ]
+b = [ 7, 8, 9 ]
+c = [ 1, 2, 3 ] 
+print zip(a,b,c) #=> [(4, 7, 1), (5, 8, 2), (6, 9, 3)]
+
+
+List : get multiple items by their indices ==>
+#< map(list.__getitem__, indices) >
+list  = [-2, 1, 5, 3, 8, 5, 6] 	#list
+indices  = [2, 4, 6]		#indices of items
+print map(list.__getitem__,  indices)	#=> [5, 8, 6]
+
+
+List : join list of integers to a string ==>
+#< 'separator'.join(str(element) for element in list)
+# first convert them to strings
+a = [1,2,3,4,5]
+print ''.join(str(e) for e in a) 
+
+
+Nested List :convert to  dictionary ==>
+# <  dict(nested list) > #nested sublists size must be 2, i.e. in pairs
+a = [
+['one', 1], 
+['two', 2]
+]
+print(dict(a))
+
+
+List : Sort ==>
+#<  sorted(list) > 		 # ascending order 
+#<  sorted(list, reverse = True) > # decending order
+a = [ "d", "a", "e", "c", "b" ]
+print(sorted(a)) 		#in ascending order
+print(sorted(a,reverse=True)) 	#in descending order
+
+
+Shuffle a list ==>
+from random import shuffle
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
+shuffle(a)
+print(a) #shuffle works in place and changes original list
+
+
+List : get random elements  ==>
+# import random
+#< random.sample(list, number of elements to select) >
+import random
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+rs = random.sample(a, 3)
+print(rs)
+
+
+List : get repeated permutations of elements ==>
+#< itertools.permutations(list) > 
+import itertools
+a = ['a', 'b', 'd']
+b = itertools.permutations(a)
+for x in b: print("".join(x))
+
+
+List : print all items  in a list ==>
+# < for .x. in  list : print x > 
+L  = ['cat', 'window', 'defenestrate']
+for x in L : print x 
+
+
+List : insert element at index  ==>
+# <  list.insert(index, element>
+list = ['cat', 'window', 'defenestrate']
+list.insert(2, "dog") #insert 'dog' at index 2
+print(list)
+
+
+List : select elements by index   ==>
+# < list[index] >
+list = ['cat', 'window', 'defenestrate', [234554, 12.23], "congratulation", {'name' : 'Karl'}]
+print list[2]
+
+
+List: select element by criterion ==>
+# [x for x in list if criterion(x) ]
+#  e.g.   type(x),   x.startswith(""),  len(x) >= int
+list = ['cat', 'window', 'defenestrate', [234554, 12.23], "congratulation", {'name' : 'Karl'}]
+print [x for x in list if type(x) == str and x.startswith('d')]  #list comprehension
+print [x for x in list if type(x) == dict] #by type
+print [x for x in list if len(x) >= 6] #by  size
+
+
+List: build from  range  ==>
+# range is not a function but a sequence
+#  <  list(range(start,end,step)) >
+print list(range(10))      	#0 to 9, 10 never included, starts with 0
+print list(range(2,12,2))      	#2 to 11, add 2
+print list(range(1,20,3))      	#1 to 19, add 3
+
+
+Range : get element   ==>
+#range is not a function but a sequence
+print range(10)[3:7] #starts at 3 and end at 6, 7 not included
+print range(10).index(3)
+
+
+List : of odd or even numbers  ==>
+print(list(range(1, 10, 2))) #start 1, limit 10 , step 2
+print(list(range(2, 11, 2))) #start 2, limit 11 , step 2
+
+
+List :  of negative decreasing numbers  ==>
+L = list(range(-110, -10, 10))
+print sorted(L)
+
+
+List : print elements  with indices ==>
+list = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(list)): 
+  print i, ":" , list[i] 			#range of list size used as an index
+for i,e in enumerate(list): 
+  print i,":" , e    			#use enumerate
+
+
+List : Add an item to  end  ==>
+# < list.append(element)
+list = [1, 2, 3, 4, 5]
+list.append(6)
+print(list)
+
+
+List : add another list to end (extend)  ==>
+#extend add list to end of another, while + adds list before or after depending on position
+list1 = [1,2,3]
+list2  = [7,8,9]
+list = [4,5,6]
+list.extend(list1)	 #adds [L] to end of list
+print(list)
+print(list2+list) 	#adds a to start of list
+print(list+list2) 	#adds a to end of list
+
+
+List : remove item by its value ==>
+list = [1, 2, 'item', 3, 4, 5]
+list.remove('item')
+print(list)
+
+
+List : remove item by index ==>
+#you have to get item index first if not known
+list = [1, 2, 'item', 3, 4, 5]
+index = list.index("item")
+list.remove(list[index])
+print(list)
+
+
+List : remove last item and get it  ==>
+# < list.pop() > return item value
+list = [1,2,3,4,5] 	#remove 5
+a = list.pop() 	#needs () even if no argument given
+print a
+print list
+
+
+List : remove item at given position and get it  ==>
+# < list.pop(index) >
+list = [1,2,3,4,5] 	#remove 4
+index = 3
+a = list.pop(index) 	#pop is a function with its arg =  index
+print a
+print list
+
+
+List : get index of a given value  ==>
+# < list.index(value) >
+list = [1, 2, 'item', 3, 4, 5] #index of 'item'
+i = list.index('item')
+print i
+
+
+List : count occurences of item appears ==>
+# <list.count(value) >
+list = [1, 2, 'x', 3, 4, 'x' , 5, 'x', 6] 	#how many xs?
+print list.count('x')
+print list.count(list[5])		 #value at index 5 is 'x'
+
+
+List : sort items  ==>
+#< list.sort(cmp=None, key=None, reverse=False) >
+a = [66.25, 333, 333, 1, 1234.5]
+a.sort()		 #list is sorted in place (modified) and a.sort() returns None
+print a
+
+
+List : sort in reverse ==>
+list = ['A' ,'b' ,'C' , 'd', 'E', 'f']
+list.sort(reverse=True)
+print list		 #upercase higher than lowercase, lower to higher
+
+
+List : filter items  ==>
+# <filter(lambda x: func(x), list >
+# get numbers from list 1-24 which are divisable by 3 or 5
+L = filter(lambda x : x % 3 == 0 or x % 5 == 0 , range(2,25))
+print L
+
+
+List : apply function to each element (map)  ==>
+# <map(func, list)>
+def cube(x): return x*x*x
+L = map(cube, range(1, 11))
+print L
+
+
+List : sum range or all elements ==>
+# < sum(list) >
+print sum(range(1, 11))	#dedicated sum function
+print sum([1,2,3,4,5])
+
+
+List : list comprehension  ==>
+# [expr(var) for var in list if var == condition] #in square brackets
+import math
+print [x**2 for x in range(10)]
+print [math.cos(x) for x in [1,2,3]]
+
+
+List : 'for' and 'if' clauses in list comprehension ==>
+#combine in a tuple each 2 elements from two lists if they are not the same
+C = [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+print C
+#This is equivalent to :-
+combs = []
+for x in [1,2,3]:
+  for y in [3,1,4]:
+    if x != y:
+      combs.append((x, y))
+print(combs)
+
+
+List : apply a function or expression to all items by list comprehension  ==>
+vec = [-4, -2, 0, 2, 4]
+def func(x): return abs(x)
+print [abs(x) for x in vec]
+print [func(x) for x in vec]
+
+
+List : 2 variables in list comprehension  ==>
+print [(x, x**2) for x in range(6)] 	# the tuple must be parenthesized, otherwise an error is raised
+L = ["Ann", "Carol", "Jean"]
+print [(i, x) for i, x in enumerate(L)]
+
+
+List : flatten nested  list by list comprehension  ==>
+nested_list  = [[1,2,3], [4,5,6], [7,8,9]]
+print([item for element  in nested_list  for item  in element])
+
+
+List : transpose rows and columns in matrix  ==>
+matrix = [[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12]]
+print(zip(*matrix))
