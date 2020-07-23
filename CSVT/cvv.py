@@ -9,9 +9,6 @@ class CSVV:
 	def __init__(self):
 		self.root = Tk()
 		self.root.geometry("1500x800")
-		self.menuBar()
-		self._build_tree()
-		self._widgets()
 
 	def menuBar(self):
 		menubar = Menu(self.root, bg="lightgrey", fg="black")
@@ -20,6 +17,10 @@ class CSVV:
 		menubar.add_cascade(label="File", menu=self.file_menu)
 		self.root.config(menu=menubar)
 
+	def del_tree(self):
+		self.tree.destroy()
+		self.main()
+	
 	def file_open(self):
 		self.file = filedialog.askopenfilename()
 		try:
@@ -28,7 +29,7 @@ class CSVV:
 			self.tree_columns = (cols)
 		except: messagebox.showinfo("No File", "No Such file or directory")
 		self.root.title(self.file)
-		
+	
 	def _build_tree(self):
 		self.file_open()
 		self.tree = ttk.Treeview(self.root, columns=self.tree_columns, selectmode='extended', show="headings")
@@ -59,8 +60,16 @@ class CSVV:
 	def _widgets(self):
 		"Build widgets for entry, add, delete and save to file in container"
 		self.app = Frame(self.root, width=1000, height=200).grid(column=0, row=1, sticky="w")
+		self.button = Button(self.app, bg="aqua", text="New File",command=self.del_tree)
+		self.button.grid(column=0, row=3, rowspan=1, sticky='we', in_=self.app)
 		self.root.grid_columnconfigure(0, weight=1)
 		self.root.grid_rowconfigure(0, weight=1)
+	
+	def main(self):
+		self.menuBar()
+		self._build_tree()
+		self._widgets()
+		self.root.mainloop()
 #================================================================
 cv = CSVV()
-cv.root.mainloop()
+cv.main()
