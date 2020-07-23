@@ -58,7 +58,7 @@ class CSVV:
 
 
 	def _widgets(self):
-		"Build widgets for entry, add, delete and save to file in container"
+		"Build widgets in container"
 		self.app = Frame(self.root, width=1000, height=200).grid(column=0, row=1, sticky="w")
 		self.button = Button(self.app, bg="aqua", text="New File",command=self.del_tree)
 		self.button.grid(column=0, row=3, rowspan=1, sticky='we', in_=self.app)
